@@ -1,7 +1,0 @@
-group=1
-#include=all
-#exclude=all
-include=000,111
-#
-group=2
-exclude=001
