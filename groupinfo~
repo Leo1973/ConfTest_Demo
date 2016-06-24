@@ -4,4 +4,4 @@ group=1
 include=000,111
 #
 group=2
-exclude=001,010
+exclude=001

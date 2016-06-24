@@ -52,5 +52,5 @@ def get_group_info(l_getfile):
             print "ERROR NAME"
     l_group_info.append(new_gi)          
     return l_group_info
-
 l_group_info = get_group_info(getfile())
+print xmlparser.root[0][0][0].text

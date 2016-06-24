@@ -42,8 +42,8 @@
 				<Semantic_Mutation id = "1311">entry_value_address_semantic</Semantic_Mutation>
 			</Address>
 			<Multi_Values id = "132">
-				<Syntactic_Mutation id = "1320">entry_value_multi_value_syntactic</Syntactic_Mutation>
-				<Semantic_Mutation id = "1321">entry_value_multi_value_semantic</Semantic_Mutation>
+				<Syntactic_Mutation id = "1320">entry_value_muti_value_syntactic</Syntactic_Mutation>
+				<Semantic_Mutation id = "1321">entry_value_muti_value_semantic</Semantic_Mutation>
 			</Multi_Values>
 			<Enum id = "133">
 				<Syntactic_Mutation id = "1330">entry_value_enum_syntactic</Syntactic_Mutation>

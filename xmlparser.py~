@@ -23,4 +23,5 @@ def getallnodetext():
         l_allnodetext.append(node.text)
     return l_allnodetext
 l_allnode = getallnode()
-l_allnodetext = getallnodetext()
+for text in getallnodetext():
+    print text,
