@@ -11,16 +11,11 @@ except Exception, e:
 #print root.tag
 #for i in root:
     #print i.tag
+
 def getallnode():
     l_allnode = []
     for node in root.getiterator():
         if node.getchildren() == []:
             l_allnode.append(node)
     return l_allnode
-def getallnodetext():
-    l_allnodetext = []
-    for node in l_allnode:
-        l_allnodetext.append(node.text)
-    return l_allnodetext
-l_allnode = getallnode()
-l_allnodetext = getallnodetext()
+
