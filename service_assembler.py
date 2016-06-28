@@ -23,7 +23,12 @@ def getfile():
             gpfileread.append(line)
         line = gpfile.readline()
     return gpfileread
-    
+def get_l_nodes(l_str):
+    l_nodes = []
+    for node in xmlparser.getallnode():
+        if node.attrib['id'] in l_str:
+            l_nodes.append(node)
+    return l_nodes
 def get_group_info(l_getfile):
     l_group_info = []
     new_gi = group_info()
@@ -40,17 +45,27 @@ def get_group_info(l_getfile):
             if value == "all":
                 new_gi.allinclude()
             else:
-                l_nodes = value.split(',')
+                l_nodes = get_l_nodes(value.split(','))
                 for node in l_nodes:
                     new_gi.include(node)
         elif entry == 'exclude':
             new_gi.allinclude()
-            l_nodes = value.split(',')
+            l_nodes = get_l_nodes(value.split(','))
             for node in l_nodes:
                 new_gi.exclude(node)
         else:
             print "ERROR NAME"
     l_group_info.append(new_gi)          
     return l_group_info
-
-l_group_info = get_group_info(getfile())
+def get_group(group_num):
+    for group in get_group_info(getfile()):
+        if group.group_num == group_num:
+            return group
+        else:
+            return 0
+def get_group_service(group_num):
+    group = get_group(group_num)
+    lstr_service = []
+    for service in group.service_set:
+        lstr_service.append(service.text)
+    return lstr_service
