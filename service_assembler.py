@@ -1,5 +1,6 @@
 #coding:utf-8
 import xmlparser
+root = xmlparser.parsexml("mutation.xml")
 class group_info:
     def __init__(self):
         self.group_num = 0
@@ -7,7 +8,7 @@ class group_info:
     def set_num(self, num):
         self.group_num = num
     def allinclude(self):
-        for node in xmlparser.getallnode():
+        for node in xmlparser.getallnode(root):
             self.service_set.append(node)
     def include(self, node):
         self.service_set.append(node)
@@ -25,7 +26,7 @@ def getfile():
     return gpfileread
 def get_l_nodes(l_str):
     l_nodes = []
-    for node in xmlparser.getallnode():
+    for node in xmlparser.getallnode(root):
         if node.attrib['id'] in l_str:
             l_nodes.append(node)
     return l_nodes
