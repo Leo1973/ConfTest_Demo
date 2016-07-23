@@ -1,5 +1,18 @@
 import utils
 import xmlparser
+class make_entry:
+    def __init__(self,dic):
+        self.key = dic["key"]
+        self.value = dic["value"]
+        self.origin = dic["origin"]
+        self.operator = dic["operator"]
+        self.constraint = dic["constraint"]
+        self.type = dic["type"]
+class make_section:
+    def __init__(self,dic):
+        self.name = dic["name"]
+        self.operator = dic["operator"]
+        self.origin = dic["origin"]
 conf_path = {"Yum":"/etc/yum.conf"
             }
 
@@ -7,12 +20,19 @@ def get_entry_info(lense):
     root = xmlparser.parsexml("lenseinfo/"+lense+".xml")
     allnode = xmlparser.getallnode(root)
     l_entry_attrib = xmlparser.getattrib(allnode)[0]
-    return l_entry_attrib
+    l_entry_info = []
+    for entry_attrib in l_entry_attrib:
+        l_entry_info.append(make_entry(entry_attrib))
+
+    return l_entry_info
 def get_section_info(lense):
     root = xmlparser.parsexml("lenseinfo/"+lense+".xml")
     allnode = xmlparser.getallnode(root)
     l_section_attrib = xmlparser.getattrib(allnode)[1]
-    return l_section_attrib
+    l_section_info = []
+    for section_attrib in l_section_attrib:
+        l_section_info.append(make_section(section_attrib))
+    return l_section_info
 class c_lenseinfo:
     def __init__(self,lense):
         self.name = lense

@@ -11,5 +11,7 @@ def generate_confs(lense, lstr_service):
 
 def init(lense, group):
     #lstr_service = service_assembler.get_group_service(group)
-    lstr_service = ["service1","service2"]
+    lstr_service = ["entry_key_typo",
+                   #"service2",
+                   ]
     generate_confs(lense,lstr_service)

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lenseinfo>
     <Entrys>
-        <Entry1 key="wang" value = "yu" operator = "=" constraint = "none" type = "PATH" origin = "wang=yu"></Entry1>
+        <Entry1 key="cachedir" value = "/var/cache/yum/$basearch/$releasever" operator = "=" constraint = "none" type = "PATH" origin = "cachedir=/var/cache/yum/$basearch/$releasever"></Entry1>
     </Entrys>
     <Sections>
-        <Section1 name = "baichi" operator = "[]" origin = "[baichi]"></Section1>
+        <Section1 name = "main" operator = "[]" origin = "[mains]"></Section1>
     </Sections>
 </lenseinfo>
+
+
