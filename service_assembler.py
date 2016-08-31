@@ -1,6 +1,6 @@
 #coding:utf-8
 import xmlparser
-root = xmlparser.parsexml("mutation.xml")
+root = xmlparser.parsexml("lenseinfo/mutation.xml")
 class group_info:
     def __init__(self):
         self.group_num = 0
@@ -16,7 +16,7 @@ class group_info:
         self.service_set.remove(node)
 
 def getfile():
-    gpfile = open("groupinfo",'r')
+    gpfile = open("lenseinfo/groupinfo",'r')
     gpfileread = []
     line = gpfile.readline()
     while(line != ""):

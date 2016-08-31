@@ -1,0 +1,13 @@
+[entry]
+cachedir /var/cache/yum/$basearch/$releasever "=" PATH ""
+keepcache 0 "=" BOOLEAN ""
+debuglevel 2 "=" NUMB ""
+logfile /var/log/yum.log "=" PATH ""
+exactarch 1 "=" BOOLEAN ""
+obsoletes 1 "=" BOOLEAN ""
+gpgcheck 1 "=" BOOLEAN ""
+plugins 1 "=" BOOLEAN ""
+installonly_limit 5 "=" NUMB ""
+bugtracker_url http://bugs.centos.org/set_project.php?project_id=23&ref=http://bugs.centos.org/bug_report_page.php?category=yum "=" PATH ""
+[section]
+main "[*]" [main]

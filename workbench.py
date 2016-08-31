@@ -1,3 +1,4 @@
+#import lenseinfo_generator
 import conf_generator
 import test_generator
 #get_group_service(group_num)
@@ -5,6 +6,6 @@ import test_generator
 lense = "Yum"
 group = 1
 #print service_assembler.get_group_service(group)
-
+#lenseinfo_generator.init(lense)
 conf_generator.init(lense,group)
 #test_generator.init(lense)
