@@ -12,11 +12,14 @@ section_operator = ["[*]",
 entry_operator = ["=",
                   " ",
                   " = "]
+bool_types = ["10",
+              "yn",
+              "tf"]
 def do1(service):#section_order
     print service
     if conf_section_info.__len__() >= 2:
-        strA = conf_section_info.pop(0).origin
-        strB = conf_section_info.pop(0).origin
+        strA = conf_section_info[0].origin
+        strB = conf_section_info[1].origin
         new_conf = spirit_method.instr_swap(strA, strB,
                                             conf_origin)
         spirit_method.save(new_conf, service, "")
@@ -207,9 +210,47 @@ def do27(service):#mail_sem
 
 def do28(service):#number_syn
     print service
+    for entry in conf_entry_info:
+        if entry.type != "NUMB" :
+            continue
+        else:
+            wrong_num = "thisisatest"
+            mutation = spirit_method.instr_replace(entry.value, wrong_num,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key)
 
 def do29(service):#number_sem
     print service
+    for entry in conf_entry_info:
+        if entry.type != "NUMB" :
+            continue
+        else:
+            sem_value = []
+            constraint = entry.constraint.split()
+            num_type = constraint[0]
+            num_range = constraint[1]
+            num_unit = constraint[2]
+            if num_type == "int":
+                float_value = str(int(entry.value)+0.5)
+                overflow_value = "99999999999999999"
+                sem_value.append(float_value)
+                sem_value.append(overflow_value)
+            if num_range != "none":
+                min_num = int(num_range.split(',')[0][1::])
+                max_num = int(num_range.split(',')[1][:-1:])
+                min_value = str(min_num - 1)
+                max_value = str(max_num + 1)
+                sem_value.append(min_value)
+                sem_value.append(max_value)
+            if num_unit != "none":
+                print "#TODO"
+            mutation = spirit_method.instr_replace(entry.value, sem_value,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key)
 
 def do30(service):#url_syn
     print service
@@ -219,10 +260,27 @@ def do31(service):#url_sem
 
 def do32(service):#boolean_syn
     print service
+    #todo
 
 def do33(service):#boolean_sem
     print service
-
+    for entry in conf_entry_info:
+        if entry.type != "BOOL" :
+            continue
+        else:
+            sem_value = []
+            if entry.constraint != "10":
+                sens_bool = spirit_method.sens(entry.value)
+                sem_value.append(sens_bool)
+            wrong_bool_type = spirit_method.chosewrong(entry.constraint, bool_types)
+            wrong_bool = spirit_method.bool_generate(wrong_bool_type)
+            sem_value.append(wrong_bool)
+            mutation = spirit_method.instr_replace(entry.value, sem_value,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key)
+            
 def do34(service):#port_syn
     print service
 
@@ -235,9 +293,10 @@ def do36(service):#path_syn
         if entry.type != "PATH" :
             continue
         else:
+            value = spirit_method.trans_path(entry.value, entry.constraint)
             syn_value = []
-            syn_value.append('\\' + entry.value[1::])
-            syn_value.append("hello")
+            syn_value.append('\\' + value[1::])
+            syn_value = spirit_method.trans_path(syn_value, entry.constraint)
             mutation = spirit_method.instr_replace(entry.value, syn_value,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
@@ -248,6 +307,23 @@ def do36(service):#path_syn
 
 def do37(service):#path_sem
     print service
+    for entry in conf_entry_info:
+        if entry.type != "PATH" :
+            continue
+        else:
+            value = spirit_method.trans_path(entry.value, entry.constraint)
+            sem_value = []
+            sem_value.append('/abc')
+            sem_value.append('/cba/abc')
+            sem_value.append('/spirittest')
+            sem_value.append('/spirittest/spirit')
+            sem_value = spirit_method.trans_path(sem_value, entry.constraint)
+            mutation = spirit_method.instr_replace(entry.value, sem_value,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key)
+            
 
 dict_service = {
                 #00X

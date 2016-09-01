@@ -1,7 +1,7 @@
 [main]
-cachedir=hello
+cachedir=/var/cache/yum/$basearch/$releasever
 keepcache=0
-debuglevel=2
+debuglevel=99999999999999999
 logfile=/var/log/yum.log
 exactarch=1
 obsoletes=1

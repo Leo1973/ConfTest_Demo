@@ -44,7 +44,7 @@ def save(new_conf, service, origin):
             fp.write(new_conf)
             fp.close()
         else:
-            print "invalid"
+            print "invalid save"
     elif type(new_conf) == list:
         count = 0
         for conf in new_conf:
@@ -55,7 +55,7 @@ def save(new_conf, service, origin):
                 fp.write(conf)
                 fp.close()
             else:
-                print "invalid"
+                print "invalid save"
 def typo(string):
     if string.isalpha():
         character_new = chr(ord(string[0])+1)
@@ -66,8 +66,14 @@ def typo(string):
 
 def sens(string):
     if string.isalpha():
-        str_new = string.upper()
-        return str_new
+        if string != string.upper():
+            str_new = string.upper()
+            return str_new
+        elif string != string.lower():
+            str_new = string.lower()
+            return str_new
+        else:
+            return "invalid sens"
     else:
         return string
 
@@ -77,4 +83,34 @@ def chosewrong(string, str_list):
         strwrong = random.choice(str_list)
     return strwrong
 
+def trans_path(path, constraint):
+    if type(path) == str:
+        if constraint == 'none':
+            return path
+        elif path[0] == constraint and path[-1] == constraint:
+            return path[1:-1]
+        else:
+            return constraint + path + constraint
+    elif type(path) == list:
+        paths = []
+        for pa in path:
+            if constraint == 'none':
+                return path
+            elif pa[0] == constraint and pa[-1] == constraint:
+                paths.append(pa[1:-1])
+            else:
+                paths.append(constraint + pa + constraint)
+        return paths
+    else:
+        print "invalid trans_path"
+
+def bool_generate(bool_type):
+    if bool_type == "10":
+        return "1"
+    elif bool_type == "yn":
+        return "yes"
+    elif bool_type == "tf":
+        return "true"
+    else:
+        print "invalid bool_generate"
 
