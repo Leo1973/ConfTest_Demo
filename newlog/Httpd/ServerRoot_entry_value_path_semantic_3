@@ -1,0 +1,14 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2016-09-22 11:00:02 CST; 942ms ago
+  Process: 28304 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 28302 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 28302 (code=exited, status=1/FAILURE)
+
+Sep 22 11:00:02 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Sep 22 11:00:02 localhost.localdomain httpd[28302]: httpd: Syntax error on line 31 of /etc/httpd/conf/httpd.conf: ServerRoot must be a valid directory
+Sep 22 11:00:02 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Sep 22 11:00:02 localhost.localdomain kill[28304]: kill: cannot find process ""
+Sep 22 11:00:02 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Sep 22 11:00:02 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Sep 22 11:00:02 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

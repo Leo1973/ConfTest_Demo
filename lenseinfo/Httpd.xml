@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lenseinfo>
+    <Entrys>
+        <Entry1 key="ServerRoot" value = '"/etc/httpd"' operator = " " constraint = '"' type = "PATH" origin = 'ServerRoot "/etc/httpd"'></Entry1>
+        <Entry2 key="EnableSendfile" value = "on" operator = " " constraint = "of" type = "BOOL" origin = "EnableSendfile on"></Entry2>
+        <Entry3 key="Listen" value = "80" operator = " " constraint = "" type = "PORT" origin = "Listen 80"></Entry3>
+    </Entrys>
+    <Sections>
+    </Sections>
+</lenseinfo>
+
+

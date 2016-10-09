@@ -13,7 +13,9 @@ class make_section:
         self.name = dic["name"]
         self.operator = dic["operator"]
         self.origin = dic["origin"]
-conf_path = {"Yum":"/etc/yum.conf"
+conf_path = {"Yum":"/etc/yum.conf",
+             "Httpd":"/etc/httpd/conf/httpd.conf",
+             "MySQL":"/etc/my.cnf"
             }
 
 def get_entry_info(lense):
@@ -21,17 +23,19 @@ def get_entry_info(lense):
     allnode = xmlparser.getallnode(root)
     l_entry_attrib = xmlparser.getattrib(allnode)[0]
     l_entry_info = []
-    for entry_attrib in l_entry_attrib:
-        l_entry_info.append(make_entry(entry_attrib))
-
+    if l_entry_attrib[0]:
+        for entry_attrib in l_entry_attrib:
+            l_entry_info.append(make_entry(entry_attrib))
     return l_entry_info
 def get_section_info(lense):
     root = xmlparser.parsexml("lenseinfo/"+lense+".xml")
     allnode = xmlparser.getallnode(root)
     l_section_attrib = xmlparser.getattrib(allnode)[1]
+    #print l_section_attrib
     l_section_info = []
-    for section_attrib in l_section_attrib:
-        l_section_info.append(make_section(section_attrib))
+    if l_section_attrib[0]:
+        for section_attrib in l_section_attrib:
+            l_section_info.append(make_section(section_attrib))
     return l_section_info
 class c_lenseinfo:
     def __init__(self,lense):

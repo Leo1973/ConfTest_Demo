@@ -1,0 +1,3 @@
+CRITICAL:yum.cli:Config error: Parsing file failed: File contains no section headers.
+file: file:///etc/yum.conf, line: 1
+'<main>\n'

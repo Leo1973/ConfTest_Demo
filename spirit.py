@@ -1,11 +1,11 @@
 import utils
 import spirit_method
-
 name = ""
 conf_path = ""
 conf_origin = ""
 conf_entry_info = []
 conf_section_info = []
+confs = "newconf/"
 
 section_operator = ["[*]",
                     "<*>"]
@@ -14,7 +14,9 @@ entry_operator = ["=",
                   " = "]
 bool_types = ["10",
               "yn",
-              "tf"]
+              "tf",
+              "of"
+             ]
 def do1(service):#section_order
     print service
     if conf_section_info.__len__() >= 2:
@@ -22,7 +24,7 @@ def do1(service):#section_order
         strB = conf_section_info[1].origin
         new_conf = spirit_method.instr_swap(strA, strB,
                                             conf_origin)
-        spirit_method.save(new_conf, service, "")
+        spirit_method.save(new_conf, service, "", directory)
 def do2(service):#section_loss
     print service
     #print conf_origin
@@ -33,14 +35,14 @@ def do2(service):#section_loss
         new_conf = spirit_method.instr_replace(section.origin, mutation, 
                                                 conf_origin)
         #print new_conf
-        spirit_method.save(new_conf, service, section.name)
+        spirit_method.save(new_conf, service, section.name, directory)
 def do3(service):#section_replication
     print service
     for section in conf_section_info:
         mutation = section.origin+'\n'+section.origin
         new_conf = spirit_method.instr_replace(section.origin, mutation, 
                                                 conf_origin)
-        spirit_method.save(new_conf, service, section.name)
+        spirit_method.save(new_conf, service, section.name, directory)
 
 
 def do4(service):#section_name_typo
@@ -51,7 +53,7 @@ def do4(service):#section_name_typo
                                                section.origin)
         new_conf = spirit_method.instr_replace(section.origin, mutation,
                                                 conf_origin)
-        spirit_method.save(new_conf, service, section.name)
+        spirit_method.save(new_conf, service, section.name, directory)
 def do5(service):#section_name_sensitive
     print service
     for section in conf_section_info:
@@ -60,7 +62,7 @@ def do5(service):#section_name_sensitive
                                                section.origin)
         new_conf = spirit_method.instr_replace(section.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, section.name)
+        spirit_method.save(new_conf, service, section.name, directory)
 
 def do6(service):#section_name_loss
     print service
@@ -70,7 +72,7 @@ def do6(service):#section_name_loss
                                                section.origin)
         new_conf = spirit_method.instr_replace(section.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, section.name)
+        spirit_method.save(new_conf, service, section.name, directory)
 
 def do7(service):#section_operator_wrong
     print service
@@ -80,7 +82,7 @@ def do7(service):#section_operator_wrong
                                                section.origin)
         new_conf = spirit_method.instr_replace(section.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, section.name)
+        spirit_method.save(new_conf, service, section.name, directory)
 
 def do8(service):#section_operator_loss
     print service
@@ -90,7 +92,7 @@ def do8(service):#section_operator_loss
                                                   section.origin)
         new_conf = spirit_method.instr_replace(section.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, section.name)
+        spirit_method.save(new_conf, service, section.name, directory)
 
 def do9(service):#key_value_pair_order
     print service
@@ -99,14 +101,14 @@ def do9(service):#key_value_pair_order
         strB = conf_entry_info[1].origin
         new_conf = spirit_method.instr_swap(strA, strB,
                                             conf_origin)
-        spirit_method.save(new_conf, service, "")
+        spirit_method.save(new_conf, service, "", directory)
 def do10(service):#key_value_pair_loss
     print service
     for entry in conf_entry_info:
         mutation = ""
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, entry.key)
+        spirit_method.save(new_conf, service, entry.key, directory)
 
 def do11(service):#key_value_pair_repulication
     print service
@@ -114,7 +116,7 @@ def do11(service):#key_value_pair_repulication
         mutation = entry.origin+"\n"+entry.origin
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, entry.key)
+        spirit_method.save(new_conf, service, entry.key, directory)
 
 def do12(service):#entry_key_typo
     print service
@@ -124,7 +126,7 @@ def do12(service):#entry_key_typo
                                                entry.origin)
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, entry.key)
+        spirit_method.save(new_conf, service, entry.key, directory)
  
 def do13(service):#entry_key_sensitive
     print service
@@ -134,7 +136,7 @@ def do13(service):#entry_key_sensitive
                                                entry.origin)
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, entry.key)
+        spirit_method.save(new_conf, service, entry.key, directory)
 
 def do14(service):#entry_key_loss
     print service
@@ -144,7 +146,7 @@ def do14(service):#entry_key_loss
                                                entry.origin)
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, entry.key)
+        spirit_method.save(new_conf, service, entry.key, directory)
 
 def do15(service):#entry_operator_wrong
     print service
@@ -154,7 +156,7 @@ def do15(service):#entry_operator_wrong
                                                entry.origin)
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, entry.key)
+        spirit_method.save(new_conf, service, entry.key, directory)
 
 def do16(service):#entry_operator_space
     print service
@@ -164,7 +166,7 @@ def do16(service):#entry_operator_space
                                                entry.origin)
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, entry.key)
+        spirit_method.save(new_conf, service, entry.key, directory)
 
 
 
@@ -176,7 +178,7 @@ def do17(service):#entry_operator_loss
                                                entry.origin)
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, entry.key)
+        spirit_method.save(new_conf, service, entry.key, directory)
 
 def do18(service):#name_syn
     print service
@@ -219,7 +221,7 @@ def do28(service):#number_syn
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
-            spirit_method.save(new_conf, service, entry.key)
+            spirit_method.save(new_conf, service, entry.key, directory)
 
 def do29(service):#number_sem
     print service
@@ -250,7 +252,7 @@ def do29(service):#number_sem
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
-            spirit_method.save(new_conf, service, entry.key)
+            spirit_method.save(new_conf, service, entry.key, directory)
 
 def do30(service):#url_syn
     print service
@@ -279,7 +281,7 @@ def do33(service):#boolean_sem
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
-            spirit_method.save(new_conf, service, entry.key)
+            spirit_method.save(new_conf, service, entry.key, directory)
             
 def do34(service):#port_syn
     print service
@@ -301,7 +303,7 @@ def do36(service):#path_syn
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
-            spirit_method.save(new_conf, service, entry.key)
+            spirit_method.save(new_conf, service, entry.key, directory)
 
 
 
@@ -322,7 +324,7 @@ def do37(service):#path_sem
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
-            spirit_method.save(new_conf, service, entry.key)
+            spirit_method.save(new_conf, service, entry.key, directory)
             
 
 dict_service = {
@@ -373,10 +375,11 @@ dict_service = {
                }
 
 def init(c_lenseinfo, service):
-    global name, conf_path, conf_origin, conf_entry_info, conf_section_info    
+    global name, conf_path, conf_origin, conf_entry_info, conf_section_info, directory    
     name = c_lenseinfo.name
     conf_path = c_lenseinfo.conf_path
     conf_origin = c_lenseinfo.conf_origin
     conf_entry_info = c_lenseinfo.conf_entry_info
     conf_section_info = c_lenseinfo.conf_section_info
+    directory = confs + c_lenseinfo.name + '/'
     dict_service[service](service)

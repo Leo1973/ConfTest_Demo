@@ -1,0 +1,4 @@
+Loaded plugins: fastestmirror, langpacks
+
+
+Error making cache directory: /spirittest/spirit/base error was: [Errno 20] Not a directory: '/spirittest/spirit/base'

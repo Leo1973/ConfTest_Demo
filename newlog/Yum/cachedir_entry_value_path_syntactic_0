@@ -1,0 +1,109 @@
+Loaded plugins: fastestmirror, langpacks
+Determining fastest mirrors
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os&infra=stock error was
+14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=extras&infra=stock error was
+14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=updates&infra=stock error was
+14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
+ * base: centos.ustc.edu.cn
+ * extras: centos.ustc.edu.cn
+ * updates: centos.ustc.edu.cn
+http://centos.ustc.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: centos.ustc.edu.cn; Unknown error"
+Trying other mirror.
+http://centos.ustc.edu.cn/centos/7.2.1511/updates/x86_64/repodata/a9319495f7da96b063b9952037909ecb6a0f319d89253bd77fae0dc13ee12b6d-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: centos.ustc.edu.cn; Unknown error"
+Trying other mirror.
+http://mirror.lzu.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirror.lzu.edu.cn; Unknown error"
+Trying other mirror.
+http://ftp.isu.edu.tw/pub/Linux/CentOS/7.2.1511/updates/x86_64/repodata/a9319495f7da96b063b9952037909ecb6a0f319d89253bd77fae0dc13ee12b6d-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: ftp.isu.edu.tw; Unknown error"
+Trying other mirror.
+http://mirrors.163.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.163.com; Unknown error"
+Trying other mirror.
+http://mirrors.163.com/centos/7.2.1511/updates/x86_64/repodata/a9319495f7da96b063b9952037909ecb6a0f319d89253bd77fae0dc13ee12b6d-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.163.com; Unknown error"
+Trying other mirror.
+http://mirrors.aliyun.com/centos/7.2.1511/updates/x86_64/repodata/a9319495f7da96b063b9952037909ecb6a0f319d89253bd77fae0dc13ee12b6d-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.aliyun.com; Unknown error"
+Trying other mirror.
+http://mirrors.aliyun.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.aliyun.com; Unknown error"
+Trying other mirror.
+http://mirrors.btte.net/centos/7.2.1511/updates/x86_64/repodata/a9319495f7da96b063b9952037909ecb6a0f319d89253bd77fae0dc13ee12b6d-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.btte.net; Unknown error"
+Trying other mirror.
+http://mirrors.cn99.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.cn99.com; Unknown error"
+Trying other mirror.
+http://mirrors.cqu.edu.cn/CentOS/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.cqu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.neusoft.edu.cn/centos/7.2.1511/updates/x86_64/repodata/a9319495f7da96b063b9952037909ecb6a0f319d89253bd77fae0dc13ee12b6d-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.neusoft.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.neusoft.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.neusoft.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.nwsuaf.edu.cn/centos/7.2.1511/updates/x86_64/repodata/a9319495f7da96b063b9952037909ecb6a0f319d89253bd77fae0dc13ee12b6d-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.nwsuaf.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.sina.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.sina.cn; Unknown error"
+Trying other mirror.
+http://mirrors.tuna.tsinghua.edu.cn/centos/7.2.1511/updates/x86_64/repodata/a9319495f7da96b063b9952037909ecb6a0f319d89253bd77fae0dc13ee12b6d-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.tuna.tsinghua.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.yun-idc.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.yun-idc.com; Unknown error"
+Trying other mirror.
+http://mirrors.zju.edu.cn/centos/7.2.1511/updates/x86_64/repodata/a9319495f7da96b063b9952037909ecb6a0f319d89253bd77fae0dc13ee12b6d-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.zju.edu.cn; Unknown error"
+Trying other mirror.
+http://mirror.lzu.edu.cn/centos/7.2.1511/updates/x86_64/repodata/a9319495f7da96b063b9952037909ecb6a0f319d89253bd77fae0dc13ee12b6d-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirror.lzu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.zju.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.zju.edu.cn; Unknown error"
+Trying other mirror.
+http://centos.ustc.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: centos.ustc.edu.cn; Unknown error"
+Trying other mirror.
+http://mirror.lzu.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirror.lzu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.163.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.163.com; Unknown error"
+Trying other mirror.
+http://mirrors.aliyun.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.aliyun.com; Unknown error"
+Trying other mirror.
+http://mirrors.cn99.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.cn99.com; Unknown error"
+Trying other mirror.
+http://mirrors.cqu.edu.cn/CentOS/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.cqu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.neusoft.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.neusoft.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.sina.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.sina.cn; Unknown error"
+Trying other mirror.
+http://mirrors.yun-idc.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.yun-idc.com; Unknown error"
+Trying other mirror.
+http://mirrors.zju.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.zju.edu.cn; Unknown error"
+Trying other mirror.
+
+
+ One of the configured repositories failed (CentOS-7 - Base),
+ and yum doesn't have enough cached data to continue. At this point the only
+ safe thing yum can do is fail. There are a few ways to work "fix" this:
+
+     1. Contact the upstream for the repository and get them to fix the problem.
+
+     2. Reconfigure the baseurl/etc. for the repository, to point to a working
+        upstream. This is most often useful if you are using a newer
+        distribution release than is supported by the repository (and the
+        packages for the previous distribution release still work).
+
+     3. Disable the repository, so yum won't use it by default. Yum will then
+        just ignore the repository until you permanently enable it again or use
+        --enablerepo for temporary usage:
+
+            yum-config-manager --disable base
+
+     4. Configure the failing repository to be skipped, if it is unavailable.
+        Note that yum will try to contact the repo. when it runs most commands,
+        so will have to try and fail each time (and thus. yum will be be much
+        slower). If it is a very temporary problem though, this is often a nice
+        compromise:
+
+            yum-config-manager --save --setopt=base.skip_if_unavailable=true
+
+failure: repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2 from base: [Errno 256] No more mirrors to try.
+http://centos.ustc.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: centos.ustc.edu.cn; Unknown error"
+http://mirror.lzu.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirror.lzu.edu.cn; Unknown error"
+http://mirrors.163.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.163.com; Unknown error"
+http://mirrors.aliyun.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.aliyun.com; Unknown error"
+http://mirrors.cn99.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.cn99.com; Unknown error"
+http://mirrors.cqu.edu.cn/CentOS/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.cqu.edu.cn; Unknown error"
+http://mirrors.neusoft.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.neusoft.edu.cn; Unknown error"
+http://mirrors.sina.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.sina.cn; Unknown error"
+http://mirrors.yun-idc.com/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.yun-idc.com; Unknown error"
+http://mirrors.zju.edu.cn/centos/7.2.1511/os/x86_64/repodata/c6411f1cc8a000ed2b651b49134631d279abba1ec1f78e5dcca79a52d8c1eada-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.zju.edu.cn; Unknown error"

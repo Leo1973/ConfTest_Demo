@@ -1,0 +1,18 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: active (running) since Thu 2016-09-22 10:58:44 CST; 634ms ago
+ Main PID: 27759 (httpd)
+   Status: "Processing requests..."
+   CGroup: /system.slice/httpd.service
+           ├─27759 /usr/sbin/httpd -DFOREGROUND
+           ├─27760 /usr/libexec/nss_pcache 9535525 off /etc/httpd/alias
+           ├─27761 /usr/sbin/httpd -DFOREGROUND
+           ├─27762 /usr/sbin/httpd -DFOREGROUND
+           ├─27763 /usr/sbin/httpd -DFOREGROUND
+           ├─27764 /usr/sbin/httpd -DFOREGROUND
+           ├─27765 /usr/sbin/httpd -DFOREGROUND
+           └─27766 /usr/sbin/httpd -DFOREGROUND
+
+Sep 22 10:58:43 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Sep 22 10:58:43 localhost.localdomain httpd[27759]: AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using localhost.localdomain. Set the 'ServerName' directive globally to suppress this message
+Sep 22 10:58:44 localhost.localdomain systemd[1]: Started The Apache HTTP Server.

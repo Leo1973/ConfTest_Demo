@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 import random
-directory = "newconf/"
 def instr_swap(strA, strB, str_origin):
     if str_origin.count(strA)*str_origin.count(strB)==1 and strA != strB:
         new_str = str_origin.replace(strA, "thisisastrA")
@@ -36,7 +35,7 @@ def instr_opereplace(ope_ori, ope_mut, str_origin):
     mid_str = str_origin.split(opeF)[1].split(opeL)[0]
     new_str = ope_mut.replace('*', mid_str)
     return new_str
-def save(new_conf, service, origin):
+def save(new_conf, service, origin, directory):
     if type(new_conf) == str:
         if new_conf:
             name = origin+"_"+service
@@ -111,6 +110,8 @@ def bool_generate(bool_type):
         return "yes"
     elif bool_type == "tf":
         return "true"
+    elif bool_type == "of":
+        return "on"
     else:
         print "invalid bool_generate"
 

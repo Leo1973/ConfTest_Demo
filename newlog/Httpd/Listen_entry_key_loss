@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2016-09-22 10:59:14 CST; 849ms ago
+  Process: 27974 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 27973 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 27973 (code=exited, status=1/FAILURE)
+
+Sep 22 10:59:14 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Sep 22 10:59:14 localhost.localdomain httpd[27973]: AH00526: Syntax error on line 42 of /etc/httpd/conf/httpd.conf:
+Sep 22 10:59:14 localhost.localdomain httpd[27973]: Invalid command '80', perhaps misspelled or defined by a module not included in the server configuration
+Sep 22 10:59:14 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Sep 22 10:59:14 localhost.localdomain kill[27974]: kill: cannot find process ""
+Sep 22 10:59:14 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Sep 22 10:59:14 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Sep 22 10:59:14 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

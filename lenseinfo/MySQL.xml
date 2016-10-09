@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lenseinfo>
+    <Entrys>
+        <Entry1 key="socket" value = "/var/lib/mysql/mysql.sock" operator = "=" constraint = "none" type = "PATH" origin = "socket=/var/lib/mysql/mysql.sock"></Entry1>
+        <Entry2 key="symbolic-links" value = "0" operator = "=" constraint = "10" type = "BOOL" origin = "symbolic-links=0"></Entry2>
+        <!-- <Entry3 key="debuglevel" value = "2" operator = "=" constraint = "int [0,10] none" type = "NUMB" origin = "debuglevel=2"></Entry3> -->
+    </Entrys>
+    <Sections>
+        <Section1 name = "mysqld" operator = "[*]" origin = "[mysqld]"></Section1>
+    </Sections>
+</lenseinfo>
+
+
