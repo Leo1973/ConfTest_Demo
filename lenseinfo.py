@@ -15,7 +15,8 @@ class make_section:
         self.origin = dic["origin"]
 conf_path = {"Yum":"/etc/yum.conf",
              "Httpd":"/etc/httpd/conf/httpd.conf",
-             "MySQL":"/etc/my.cnf"
+             "MySQL":"/etc/my.cnf",
+             "Redis":"/etc/redis.conf"
             }
 
 def get_entry_info(lense):

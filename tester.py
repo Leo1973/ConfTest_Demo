@@ -5,7 +5,8 @@ import subprocess
 import lenseinfo
 import time
 log = {
-        "MySQL":"/var/log/mariadb/mariadb.log"
+        "MySQL":"/var/log/mariadb/mariadb.log",
+        "Redis":"/var/log/redis.log"
         }
 newlogs = "newlog/"
 newconfs = "newconf/"
@@ -28,14 +29,21 @@ def MySQLScript(spirit_name):
     process = os.popen("systemctl stop mariadb.service")
     time.sleep(1)
     utils.recordnewlog(log[lenseinfo_name], position, "./"+directory_log + spirit_name)
+def RedisScript(spirit_name):
+    position = utils.seek2(log[lenseinfo_name])
+    process = os.popen("redis-server /etc/redis.conf >  ./"+directory_log + spirit_name+" 2>&1")
+    time.sleep(2)
+    process = os.popen("redis-cli shutdown")
+    #utils.recordnewlog(log[lenseinfo_name], position, "./"+directory_log + spirit_name)
 def confcp2(conf_path, conf):
     shutil.copyfile(conf, conf_path)
-
+    
 
 runscript = {
                 "Yum":YumScript,
                 "Httpd":HttpdScript,
-                "MySQL":MySQLScript
+                "MySQL":MySQLScript,
+                "Redis":RedisScript
             }
 
 

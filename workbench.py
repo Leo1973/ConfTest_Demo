@@ -4,7 +4,7 @@ import test_generator
 import lenseinfo
 #get_group_service(group_num)
 
-lense = "MySQL"
+lense = "Redis"
 group = 1
 c_lenseinfo = lenseinfo.init(lense)
 #print service_assembler.get_group_service(group)
