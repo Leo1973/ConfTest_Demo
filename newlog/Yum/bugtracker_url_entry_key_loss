@@ -1,3 +1,0 @@
-CRITICAL:yum.cli:Config error: Parsing file failed: File contains parsing errors: file:///etc/yum.conf
-	[line 43]: =http://bugs.centos.org/set_project.php?project_id=23&ref=http://bugs.centos.org/bug_report_page.php?category=yum
-

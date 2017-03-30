@@ -1,5 +1,0 @@
-
-*** FATAL CONFIG FILE ERROR ***
-Reading the configuration file, at line 128
->>> 'eaemonize no'
-Bad directive or wrong number of arguments

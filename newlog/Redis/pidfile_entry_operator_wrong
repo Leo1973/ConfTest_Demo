@@ -1,5 +1,0 @@
-
-*** FATAL CONFIG FILE ERROR ***
-Reading the configuration file, at line 150
->>> 'pidfile=/var/run/redis_6379.pid'
-Bad directive or wrong number of arguments

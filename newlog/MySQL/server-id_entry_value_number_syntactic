@@ -1,7 +1,0 @@
-170116 14:11:51 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
-170116 14:11:51 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
-Unknown suffix 't' used for variable 'server_id' (value 'thisisatest')
-170116 14:11:51 [ERROR] /usr/libexec/mysqld: Error while setting value 'thisisatest' to 'server_id'
-170116 14:11:51 [ERROR] Aborting
-
-170116 14:11:51 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

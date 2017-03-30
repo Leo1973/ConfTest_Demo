@@ -1,5 +1,0 @@
-170116 13:43:41 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
-170116 13:43:41 [ERROR] /usr/libexec/mysqld: option '--socket' requires an argument
-170116 13:43:41 [ERROR] Aborting
-
-170116 13:43:41 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

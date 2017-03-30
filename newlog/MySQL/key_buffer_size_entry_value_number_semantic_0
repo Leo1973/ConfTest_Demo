@@ -1,6 +1,0 @@
-170116 14:12:21 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
-Unknown suffix '.' used for variable 'key_buffer_size' (value '384.5M')
-170116 14:12:21 [ERROR] /usr/libexec/mysqld: Error while setting value '384.5M' to 'key_buffer_size'
-170116 14:12:21 [ERROR] Aborting
-
-170116 14:12:21 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

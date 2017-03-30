@@ -1,8 +1,0 @@
-httpd.service - The Apache HTTP Server
-   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
-   Active: activating (start) since Sun 2017-01-15 18:21:04 CST; 5s ago
- Main PID: 20459 (httpd)
-   CGroup: /system.slice/httpd.service
-           └─20459 /usr/sbin/httpd -DFOREGROUND
-
-Jan 15 18:21:04 bogon systemd[1]: Starting The Apache HTTP Server...

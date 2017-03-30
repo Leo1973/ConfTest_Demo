@@ -1,7 +1,0 @@
-170116 14:11:03 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
-Unknown suffix 't' used for variable 'table_open_cache' (value 'thisisatest')
-170116 14:11:03 [Warning] option 'table_open_cache': unsigned value 0 adjusted to 1
-170116 14:11:03 [ERROR] /usr/libexec/mysqld: Error while setting value 'thisisatest' to 'table_open_cache'
-170116 14:11:03 [ERROR] Aborting
-
-170116 14:11:03 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

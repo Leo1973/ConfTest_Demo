@@ -1,6 +1,0 @@
-170116 14:13:45 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
-Unknown suffix '.' used for variable 'thread_cache_size' (value '8.5')
-170116 14:13:45 [ERROR] /usr/libexec/mysqld: Error while setting value '8.5' to 'thread_cache_size'
-170116 14:13:45 [ERROR] Aborting
-
-170116 14:13:45 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

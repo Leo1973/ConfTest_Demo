@@ -1,3 +1,0 @@
-CRITICAL:yum.cli:Config error: Parsing file failed: File contains parsing errors: file:///etc/yum.conf
-	[line 41]: =5
-
