@@ -1,3 +1,7 @@
-CRITICAL:yum.cli:Config error: Parsing file failed: File contains parsing errors: file:///etc/yum.conf
-	[line  4]: debuglevel 2
-
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.163.com
+ * extras: mirrors.cn99.com
+ * updates: mirrors.cn99.com
+Warning: No matches found for: hello
+No matches found

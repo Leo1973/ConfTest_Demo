@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lenseinfo>
     <Entrys>
-        <Entry1 key="cachedir" value = "/var/cache/yum/$basearch/$releasever" operator = "=" constraint = "none" type = "PATH" origin = "cachedir=/var/cache/yum/$basearch/$releasever"></Entry1>
-        <Entry2 key="keepcache" value = "0" operator = "=" constraint = "10" type = "BOOL" origin = "keepcache=0"></Entry2>
-        <Entry3 key="debuglevel" value = "2" operator = "=" constraint = "int [0,10] none" type = "NUMB" origin = "debuglevel=2"></Entry3>
+        <Entry1 key='cachedir' value = '/var/cache/yum/$basearch/$releasever' operator = '=' constraint = 'none' type = 'PATH' origin = 'cachedir=/var/cache/yum/$basearch/$releasever'></Entry1>
+        <Entry2 key='persistdir' value = '/var/lib/yum' operator = '=' constraint = 'none' type = 'PATH' origin = 'persistdir=/var/lib/yum'></Entry2>
+        <Entry3 key='keepcache' value = '0' operator = '=' constraint = '10' type = 'BOOL' origin = 'keepcache=0'></Entry3>
+        <Entry4 key='debuglevel' value = '2' operator = '=' constraint = 'int [0,10] none' type = 'NUM' origin = 'debuglevel=2'></Entry4>
+        <Entry5 key='errorlevel' value = '2' operator = '=' constraint = 'int [0,10] none' type = 'NUM' origin = 'errorlevel=2'></Entry5>
+        <Entry6 key='persistdir' value = 'info' operator = '=' constraint = 'none' type = 'ENUM' origin = 'persistdir=info'></Entry6>
+        <Entry7 key='logfile' value = '/var/log/yum.log' operator = '=' constraint = 'none' type = 'PATH' origin = 'logfile=/var/log/yum.log'></Entry7>
+        <Entry8 key='protected_multilib' value = '1' operator = '=' constraint = '10' type = 'BOOL' origin = 'protected_multilib=1'></Entry8>
+        <Entry9 key='localpkg_gpgcheck' value = '0' operator = '=' constraint = '10' type = 'BOOL' origin = 'localpkg_gpgcheck=0'></Entry9>
+        <Entry10 key='repo_gpgcheck' value = '0' operator = '=' constraint = '10' type = 'BOOL' origin = 'repo_gpgcheck=0'></Entry10>
+        <Entry11 key='skip_broken' value = '0' operator = '=' constraint = '10' type = 'BOOL' origin = 'skip_broken=0'></Entry11>
+        <Entry12 key='assumeyes' value = '0' operator = '=' constraint = '10' type = 'BOOL' origin = 'assumeyes=0'></Entry12>
+        <Entry13 key='alwaysprompt' value = '1' operator = '=' constraint = '10' type = 'BOOL' origin = 'alwaysprompt=1'></Entry13>
+        <Entry14 key='tolerant' value = '0' operator = '=' constraint = '10' type = 'BOOL' origin = 'tolerant=0'></Entry14>
+        <Entry15 key='exactarch' value = '1' operator = '=' constraint = '10' type = 'BOOL' origin = 'exactarch=1'></Entry15>
+        <Entry16 key='obsoletes' value = '1' operator = '=' constraint = '10' type = 'BOOL' origin = 'obsoletes=1'></Entry16>
+        <Entry17 key='gpgcheck' value = '1' operator = '=' constraint = '10' type = 'BOOL' origin = 'gpgcheck=1'></Entry17>
+        <Entry18 key='plugins' value = '1' operator = '=' constraint = '10' type = 'BOOL' origin = 'plugins=1'></Entry18>
+        <Entry19 key='installonlypkgs' value = 'kernel' operator = '=' constraint = 'none' type = 'ENUM' origin = 'installonlypkgs=kernel'></Entry19>
+        <Entry20 key='installonly_limit' value = '5' operator = '=' constraint = 'none' type = 'NUM' origin = 'installonly_limit=5'></Entry20>
+        <Entry21 key='bugtracker_url' value = 'http://bugs.centos.org/set_project.php?project_id' operator = '=' constraint = 'none' type = 'URL' origin = 'bugtracker_url=http://bugs.centos.org/set_project.php?project_id=23&amp;ref=http://bugs.centos.org/bug_report_page.php?category=yum'></Entry21>
+        <Entry22 key='distroverpkg' value = 'centos-release' operator = '=' constraint = 'none' type = 'ENUM' origin = 'distroverpkg=centos-release'></Entry22>
+        <Entry23 key='http_caching' value = 'all' operator = '=' constraint = 'none' type = 'ENUM' origin = 'http_caching=all'></Entry23>
+        <Entry24 key='timeout' value = '30' operator = '=' constraint = 'none' type = 'NUM' origin = 'timeout=30'></Entry24>
+        <Entry25 key='recent' value = '7' operator = '=' constraint = 'none' type = 'NUM' origin = 'recent=7'></Entry25>
+        <Entry26 key='retries' value = '10' operator = '=' constraint = 'none' type = 'NUM' origin = 'retries=10'></Entry26>
+
+
     </Entrys>
     <Sections>
         <Section1 name = "main" operator = "[*]" origin = "[main]"></Section1>

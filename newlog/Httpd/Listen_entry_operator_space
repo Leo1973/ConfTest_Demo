@@ -1,18 +1,12 @@
 httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
-   Active: active (running) since Thu 2016-09-22 10:59:32 CST; 694ms ago
- Main PID: 28101 (httpd)
-   Status: "Processing requests..."
-   CGroup: /system.slice/httpd.service
-           ├─28101 /usr/sbin/httpd -DFOREGROUND
-           ├─28102 /usr/libexec/nss_pcache 11698219 off /etc/httpd/alias
-           ├─28103 /usr/sbin/httpd -DFOREGROUND
-           ├─28104 /usr/sbin/httpd -DFOREGROUND
-           ├─28105 /usr/sbin/httpd -DFOREGROUND
-           ├─28106 /usr/sbin/httpd -DFOREGROUND
-           ├─28107 /usr/sbin/httpd -DFOREGROUND
-           └─28108 /usr/sbin/httpd -DFOREGROUND
+   Active: failed (Result: exit-code) since Sun 2017-01-15 18:45:19 CST; 4s ago
+  Process: 24283 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 24280 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=0/SUCCESS)
+ Main PID: 24280 (code=exited, status=0/SUCCESS)
 
-Sep 22 10:59:32 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
-Sep 22 10:59:32 localhost.localdomain httpd[28101]: AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using localhost.localdomain. Set the 'ServerName' directive globally to suppress this message
-Sep 22 10:59:32 localhost.localdomain systemd[1]: Started The Apache HTTP Server.
+Jan 15 18:45:18 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 18:45:19 bogon kill[24283]: kill: cannot find process ""
+Jan 15 18:45:19 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 18:45:19 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 18:45:19 bogon systemd[1]: Unit httpd.service entered failed state.

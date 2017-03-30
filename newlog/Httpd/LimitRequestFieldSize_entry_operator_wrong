@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Sun 2017-01-15 18:44:56 CST; 4s ago
+  Process: 24249 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 24248 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 24248 (code=exited, status=1/FAILURE)
+
+Jan 15 18:44:56 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 18:44:56 bogon httpd[24248]: AH00526: Syntax error on line 116 of /etc/httpd/conf/httpd.conf:
+Jan 15 18:44:56 bogon httpd[24248]: LimitRequestFieldsize takes one argument, Limit on maximum size of an HTTP request header field
+Jan 15 18:44:56 bogon systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jan 15 18:44:56 bogon kill[24249]: kill: cannot find process ""
+Jan 15 18:44:56 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 18:44:56 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 18:44:56 bogon systemd[1]: Unit httpd.service entered failed state.

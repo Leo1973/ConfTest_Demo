@@ -4,6 +4,10 @@ def readfile(filepath):
     fp.close()
     return fileread
 
+def writefile(load, filepath):
+    fp = open(filepath, 'w')
+    fp.write(load)
+    return fp.close()
 def seek2(filepath):
     fp = open(filepath, 'r')
     fp.seek(0, 2)
@@ -17,6 +21,10 @@ def recordnewlog(logpath, position, tgpath):
     fileread = logfp.read()
     tgfp = open(tgpath, 'w')
     tgfp.write(fileread)
-    logfp.close()
-    tgfp.close()
+    return logfp.close() and tgfp.close()
 
+def getnewlog(logpath, position):
+    logfp = open(logpath, 'r')
+    logfp.seek(position)
+    fileread = logfp.read()
+    return fileread

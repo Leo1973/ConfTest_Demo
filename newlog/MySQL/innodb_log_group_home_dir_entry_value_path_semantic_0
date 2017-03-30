@@ -1,0 +1,15 @@
+170116 14:18:03 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170116 14:18:03 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+170116 14:18:03 InnoDB: The InnoDB memory heap is disabled
+170116 14:18:03 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+170116 14:18:03 InnoDB: Compressed tables use zlib 1.2.7
+170116 14:18:03 InnoDB: Using Linux native AIO
+170116 14:18:03 InnoDB: Initializing buffer pool, size = 384.0M
+170116 14:18:03 InnoDB: Completed initialization of buffer pool
+170116 14:18:03  InnoDB: Operating system error number 13 in a file operation.
+InnoDB: The error means mysqld does not have the access rights to
+InnoDB: the directory.
+InnoDB: File name /abc/ib_logfile0
+InnoDB: File operation call: 'create'.
+InnoDB: Cannot continue operation.
+170116 14:18:03 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

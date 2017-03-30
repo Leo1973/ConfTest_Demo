@@ -1,0 +1,14 @@
+postgresql.service - PostgreSQL database server
+   Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled)
+   Active: failed (Result: exit-code) since Mon 2017-01-16 20:09:22 CST; 3s ago
+  Process: 86305 ExecStart=/usr/bin/pg_ctl start -D ${PGDATA} -s -o -p ${PGPORT} -w -t 300 (code=exited, status=1/FAILURE)
+  Process: 86300 ExecStartPre=/usr/bin/postgresql-check-db-dir ${PGDATA} (code=exited, status=0/SUCCESS)
+
+Jan 16 20:09:21 bogon systemd[1]: Starting PostgreSQL database server...
+Jan 16 20:09:21 bogon pg_ctl[86305]: LOG:  63 is outside the valid range for parameter "work_mem" (64 .. 2147483647)
+Jan 16 20:09:21 bogon pg_ctl[86305]: FATAL:  configuration file "/var/lib/pgsql/data/postgresql.conf" contains errors
+Jan 16 20:09:22 bogon pg_ctl[86305]: pg_ctl: could not start server
+Jan 16 20:09:22 bogon pg_ctl[86305]: Examine the log output.
+Jan 16 20:09:22 bogon systemd[1]: postgresql.service: control process exited, code=exited status=1
+Jan 16 20:09:22 bogon systemd[1]: Failed to start PostgreSQL database server.
+Jan 16 20:09:22 bogon systemd[1]: Unit postgresql.service entered failed state.

@@ -1,0 +1,7 @@
+170116 14:12:33 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Unknown suffix '.' used for variable 'max_allowed_packet' (value '1.5M')
+170116 14:12:33 [Warning] option 'max_allowed_packet': unsigned value 0 adjusted to 1024
+170116 14:12:33 [ERROR] /usr/libexec/mysqld: Error while setting value '1.5M' to 'max_allowed_packet'
+170116 14:12:33 [ERROR] Aborting
+
+170116 14:12:33 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

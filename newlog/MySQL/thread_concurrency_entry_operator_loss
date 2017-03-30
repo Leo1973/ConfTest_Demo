@@ -1,0 +1,19 @@
+170116 14:09:14 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170116 14:09:14 InnoDB: The InnoDB memory heap is disabled
+170116 14:09:14 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+170116 14:09:14 InnoDB: Compressed tables use zlib 1.2.7
+170116 14:09:14 InnoDB: Using Linux native AIO
+170116 14:09:14 InnoDB: Initializing buffer pool, size = 384.0M
+170116 14:09:14 InnoDB: Completed initialization of buffer pool
+170116 14:09:14 InnoDB: highest supported file format is Barracuda.
+170116 14:09:14  InnoDB: Waiting for the background threads to start
+170116 14:09:15 Percona XtraDB (http://www.percona.com) 5.5.40-MariaDB-36.1 started; log sequence number 1597945
+170116 14:09:15 [Note] Plugin 'FEEDBACK' is disabled.
+170116 14:09:15 [ERROR] /usr/libexec/mysqld: unknown option '--thread_concurrency8'
+170116 14:09:15 [ERROR] Aborting
+
+170116 14:09:15  InnoDB: Starting shutdown...
+170116 14:09:16  InnoDB: Shutdown completed; log sequence number 1597945
+170116 14:09:16 [Note] /usr/libexec/mysqld: Shutdown complete
+
+170116 14:09:16 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os&infra=stock error was
+14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=extras&infra=stock error was
+14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=updates&infra=stock error was
+14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
+ * base: mirrors.cn99.com
+ * extras: mirrors.cn99.com
+ * updates: mirrors.cn99.com
+Warning: No matches found for: hello
+No matches found

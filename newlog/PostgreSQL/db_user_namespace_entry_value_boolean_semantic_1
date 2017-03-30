@@ -1,0 +1,20 @@
+postgresql.service - PostgreSQL database server
+   Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled)
+   Active: active (running) since Mon 2017-01-16 20:15:27 CST; 3s ago
+  Process: 87563 ExecStart=/usr/bin/pg_ctl start -D ${PGDATA} -s -o -p ${PGPORT} -w -t 300 (code=exited, status=0/SUCCESS)
+  Process: 87558 ExecStartPre=/usr/bin/postgresql-check-db-dir ${PGDATA} (code=exited, status=0/SUCCESS)
+ Main PID: 87567 (postgres)
+   CGroup: /system.slice/postgresql.service
+           ├─87567 /usr/bin/postgres -D /var/lib/pgsql/data -p 5432
+           ├─87569 postgres: checkpointer process                  
+           ├─87570 postgres: writer process                        
+           ├─87571 postgres: wal writer process                    
+           ├─87572 postgres: autovacuum launcher process           
+           └─87573 postgres: stats collector process               
+
+Jan 16 20:15:26 bogon systemd[1]: Starting PostgreSQL database server...
+Jan 16 20:15:26 bogon pg_ctl[87563]: LOG:  database system was shut down at 2017-01-16 12:15:25 GMT
+Jan 16 20:15:26 bogon pg_ctl[87563]: LOG:  database system is ready to accept connections
+Jan 16 20:15:26 bogon pg_ctl[87563]: LOG:  autovacuum launcher started
+Jan 16 20:15:27 bogon pg_ctl[87563]: FATAL:  role "postgres@postgres" does not exist
+Jan 16 20:15:27 bogon systemd[1]: Started PostgreSQL database server.

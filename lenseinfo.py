@@ -16,7 +16,9 @@ class make_section:
 conf_path = {"Yum":"/etc/yum.conf",
              "Httpd":"/etc/httpd/conf/httpd.conf",
              "MySQL":"/etc/my.cnf",
-             "Redis":"/etc/redis.conf"
+             "Redis":"/etc/redis.conf",
+             "PostgreSQL":"/var/lib/pgsql/data/postgresql.conf",
+             "TEST":"test/test.conf"
             }
 
 def get_entry_info(lense):

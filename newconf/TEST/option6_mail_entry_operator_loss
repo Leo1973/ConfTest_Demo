@@ -1,0 +1,11 @@
+[sectionA]
+option1_port = 10000
+option2_url = http://www.baidu.com
+#NUMB int none M
+option3_number = 1000M
+[sectionB]
+option4_address = 127.0.0.1
+option5_enum = shitou
+option6_mailleonut1993@gmail.com
+option7_bool = on
+option8_path =  /etc/test.conf

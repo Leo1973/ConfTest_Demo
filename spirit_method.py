@@ -61,20 +61,19 @@ def typo(string):
         str_new = character_new + string[1::]
         return str_new
     else:
-        return string
+        return False
 
 def sens(string):
     if string.isalpha():
         if string != string.upper():
             str_new = string.upper()
             return str_new
-        elif string != string.lower():
+        else: 
+            string != string.lower()
             str_new = string.lower()
             return str_new
-        else:
-            return "invalid sens"
     else:
-        return string
+        return False
 
 def chosewrong(string, str_list):
     strwrong = random.choice(str_list)

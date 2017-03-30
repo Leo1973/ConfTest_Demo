@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lenseinfo>
+    <Entrys>
+        <Entry1 key="pidfile" value = "/var/run/redis_6379.pid" operator = " " constraint = "none" type = "PATH" origin = "pidfile /var/run/redis_6379.pid"></Entry1>
+        <Entry2 key="daemonize" value = "no" operator = " " constraint = "yn" type = "BOOL" origin = "daemonize no"></Entry2>
+        <!-- 
+        <Entry3 key="debuglevel" value = "2" operator = "=" constraint = "int [0,10] none" type = "NUMB" origin = "debuglevel=2"></Entry3> 
+        -->
+    </Entrys>
+    <Sections>
+        <!--
+        <Section1 name = "mysqld" operator = "[*]" origin = "[mysqld]"></Section1> 
+        -->
+    </Sections>
+</lenseinfo>
+
+

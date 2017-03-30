@@ -1,19 +1,57 @@
+
 [mysqld]
-datadir=/var/lib/mysql
-socket /var/lib/mysql/mysql.sock
-# Disabling symbolic-links is recommended to prevent assorted security risks
-symbolic-links=0
-# Settings user and group are ignored when systemd is used.
-# If you need to run mysqld under a different user or group,
-# customize your systemd unit file for mariadb according to the
-# instructions in http://fedoraproject.org/wiki/Systemd
-
+#BOOL $10
+symbolic-links = 0
+#PORT
+port = 3306
+#PATH
+socket=/var/lib/mysql/mysql.sock
+skip-external-locking
+#NUMB $int none M
+key_buffer_size = 384M
+#NUMB $int none M
+max_allowed_packet = 1M
+#NUMB $int none none
+table_open_cache = 512
+#NUMB $int none M
+sort_buffer_size = 2M
+#NUMB $int none M
+read_buffer_size = 2M
+#NUMB $int none M
+read_rnd_buffer_size = 8M
+#NUMB $int none M
+myisam_sort_buffer_size = 64M
+#NUMB $int none none
+thread_cache_size = 8
+#NUMB $int none M
+query_cache_size = 32M
+#NUMB $int none none
+thread_concurrency = 8
+#PATH
+tmpdir = /tmp/
+#ENUM
+log-bin = mysql-bin
+#NUMB
+server-id = 1
+#ENUM
+binlog_format = mixed
+#PATH
+innodb_data_home_dir = /var/lib/mysql
+#PATH
+innodb_log_group_home_dir = /var/lib/mysql
+#NUMB $int none M
+innodb_buffer_pool_size = 384M
+#NUMB $int none M
+innodb_additional_mem_pool_size = 20M
+#NUMB $int none M
+innodb_log_buffer_size = 8M
+#BOOL $10
+innodb_flush_log_at_trx_commit = 1
+#NUMB $int none none
+innodb_lock_wait_timeout = 50
 [mysqld_safe]
-log-error=/var/log/mariadb/mariadb.log
-pid-file=/var/run/mariadb/mariadb.pid
-
-#
-# include all files from the config directory
-#
+#PATH
+log-error = /var/log/mariadb/mariadb.log
+#PATH
+pid-file = /var/run/mariadb/mariadb.pid
 !includedir /etc/my.cnf.d
-

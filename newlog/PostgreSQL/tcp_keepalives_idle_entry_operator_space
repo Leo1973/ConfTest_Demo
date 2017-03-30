@@ -1,0 +1,19 @@
+postgresql.service - PostgreSQL database server
+   Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled)
+   Active: active (running) since Mon 2017-01-16 19:57:40 CST; 3s ago
+  Process: 83316 ExecStart=/usr/bin/pg_ctl start -D ${PGDATA} -s -o -p ${PGPORT} -w -t 300 (code=exited, status=0/SUCCESS)
+  Process: 83311 ExecStartPre=/usr/bin/postgresql-check-db-dir ${PGDATA} (code=exited, status=0/SUCCESS)
+ Main PID: 83320 (postgres)
+   CGroup: /system.slice/postgresql.service
+           ├─83320 /usr/bin/postgres -D /var/lib/pgsql/data -p 5432
+           ├─83322 postgres: checkpointer process                  
+           ├─83323 postgres: writer process                        
+           ├─83324 postgres: wal writer process                    
+           ├─83325 postgres: autovacuum launcher process           
+           └─83326 postgres: stats collector process               
+
+Jan 16 19:57:39 bogon systemd[1]: Starting PostgreSQL database server...
+Jan 16 19:57:39 bogon pg_ctl[83316]: LOG:  database system was shut down at 2017-01-16 11:57:38 GMT
+Jan 16 19:57:39 bogon pg_ctl[83316]: LOG:  database system is ready to accept connections
+Jan 16 19:57:39 bogon pg_ctl[83316]: LOG:  autovacuum launcher started
+Jan 16 19:57:40 bogon systemd[1]: Started PostgreSQL database server.

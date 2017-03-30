@@ -1,14 +1,14 @@
 httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
-   Active: failed (Result: exit-code) since Thu 2016-09-22 10:59:56 CST; 923ms ago
-  Process: 28259 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
-  Process: 28258 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
- Main PID: 28258 (code=exited, status=1/FAILURE)
+   Active: failed (Result: exit-code) since Sun 2017-01-15 18:59:49 CST; 4s ago
+  Process: 26753 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 26752 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 26752 (code=exited, status=1/FAILURE)
 
-Sep 22 10:59:56 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
-Sep 22 10:59:56 localhost.localdomain httpd[28258]: httpd: Syntax error on line 56 of /etc/httpd/conf/httpd.conf: Could not open config directory /cba/abc/conf.modules.d: No such file or directory
-Sep 22 10:59:56 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
-Sep 22 10:59:56 localhost.localdomain kill[28259]: kill: cannot find process ""
-Sep 22 10:59:56 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
-Sep 22 10:59:56 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
-Sep 22 10:59:56 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.
+Jan 15 18:59:49 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 18:59:49 bogon httpd[26752]: httpd: Syntax error on line 7 of /etc/httpd/conf/httpd.conf: Could not open config directory /cba/abc/conf.modules.d: No such file or directory
+Jan 15 18:59:49 bogon systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jan 15 18:59:49 bogon kill[26753]: kill: cannot find process ""
+Jan 15 18:59:49 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 18:59:49 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 18:59:49 bogon systemd[1]: Unit httpd.service entered failed state.

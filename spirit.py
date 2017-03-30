@@ -1,5 +1,6 @@
 import utils
 import spirit_method
+import mylog
 name = ""
 conf_path = ""
 conf_origin = ""
@@ -25,6 +26,7 @@ def do1(service):#section_order
         new_conf = spirit_method.instr_swap(strA, strB,
                                             conf_origin)
         spirit_method.save(new_conf, service, "", directory)
+        mylog.log("", service, "", "1", "2")
 def do2(service):#section_loss
     print service
     #print conf_origin
@@ -36,6 +38,7 @@ def do2(service):#section_loss
                                                 conf_origin)
         #print new_conf
         spirit_method.save(new_conf, service, section.name, directory)
+        mylog.log(section.origin, service, mutation, "1","2")
 def do3(service):#section_replication
     print service
     for section in conf_section_info:
@@ -43,26 +46,35 @@ def do3(service):#section_replication
         new_conf = spirit_method.instr_replace(section.origin, mutation, 
                                                 conf_origin)
         spirit_method.save(new_conf, service, section.name, directory)
-
+        mylog.log(section.origin, service, mutation, "1","2")
 
 def do4(service):#section_name_typo
     print service
     for section in conf_section_info:
         str_typo = spirit_method.typo(section.name)
-        mutation = spirit_method.instr_replace(section.name, str_typo,
+        if str_typo:
+            mutation = spirit_method.instr_replace(section.name, str_typo,
                                                section.origin)
-        new_conf = spirit_method.instr_replace(section.origin, mutation,
+            new_conf = spirit_method.instr_replace(section.origin, mutation,
                                                 conf_origin)
-        spirit_method.save(new_conf, service, section.name, directory)
+            spirit_method.save(new_conf, service, section.name, directory)
+        else:
+            mutation = section.name + "typo failed"
+        mylog.log(section.origin, service, mutation, "1","2")
+
 def do5(service):#section_name_sensitive
     print service
     for section in conf_section_info:
         str_sensitive = spirit_method.sens(section.name)
-        mutation = spirit_method.instr_replace(section.name, str_sensitive,
+        if str_sensitive:
+            mutation = spirit_method.instr_replace(section.name, str_sensitive,
                                                section.origin)
-        new_conf = spirit_method.instr_replace(section.origin, mutation,
+            new_conf = spirit_method.instr_replace(section.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, section.name, directory)
+            spirit_method.save(new_conf, service, section.name, directory)
+        else:
+            mutation =  section.name + "sens failed"
+        mylog.log(section.origin, service, mutation, "1","2")
 
 def do6(service):#section_name_loss
     print service
@@ -73,6 +85,7 @@ def do6(service):#section_name_loss
         new_conf = spirit_method.instr_replace(section.origin, mutation,
                                                conf_origin)
         spirit_method.save(new_conf, service, section.name, directory)
+        mylog.log(section.origin, service, mutation, "1","2")
 
 def do7(service):#section_operator_wrong
     print service
@@ -83,6 +96,7 @@ def do7(service):#section_operator_wrong
         new_conf = spirit_method.instr_replace(section.origin, mutation,
                                                conf_origin)
         spirit_method.save(new_conf, service, section.name, directory)
+        mylog.log(section.origin, service, mutation, "1","2")
 
 def do8(service):#section_operator_loss
     print service
@@ -93,6 +107,7 @@ def do8(service):#section_operator_loss
         new_conf = spirit_method.instr_replace(section.origin, mutation,
                                                conf_origin)
         spirit_method.save(new_conf, service, section.name, directory)
+        mylog.log(section.origin, service, mutation, "1","2")
 
 def do9(service):#key_value_pair_order
     print service
@@ -102,6 +117,8 @@ def do9(service):#key_value_pair_order
         new_conf = spirit_method.instr_swap(strA, strB,
                                             conf_origin)
         spirit_method.save(new_conf, service, "", directory)
+        mylog.log("", service, "", "1","2")
+
 def do10(service):#key_value_pair_loss
     print service
     for entry in conf_entry_info:
@@ -109,6 +126,7 @@ def do10(service):#key_value_pair_loss
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
         spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
 
 def do11(service):#key_value_pair_repulication
     print service
@@ -117,26 +135,34 @@ def do11(service):#key_value_pair_repulication
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
         spirit_method.save(new_conf, service, entry.key, directory)
-
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do12(service):#entry_key_typo
     print service
     for entry in conf_entry_info:
         str_typo = spirit_method.typo(entry.key)
-        mutation = spirit_method.instr_replace(entry.key, str_typo,
+        if str_typo:
+            mutation = spirit_method.instr_replace(entry.key, str_typo,
                                                entry.origin)
-        new_conf = spirit_method.instr_replace(entry.origin, mutation,
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, entry.key, directory)
- 
+            spirit_method.save(new_conf, service, entry.key, directory)
+            mylog.log(entry.origin, service, mutation, "1","2")
+        else:
+            mutation = entry.key + "typo failed"
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do13(service):#entry_key_sensitive
     print service
     for entry in conf_entry_info:
         str_sensitive = spirit_method.sens(entry.key)
-        mutation = spirit_method.instr_replace(entry.key, str_sensitive,
+        if str_sensitive:
+            mutation = spirit_method.instr_replace(entry.key, str_sensitive,
                                                entry.origin)
-        new_conf = spirit_method.instr_replace(entry.origin, mutation,
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
-        spirit_method.save(new_conf, service, entry.key, directory)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        else:
+            mutation =  entry.key + "sens failed"
+        mylog.log(entry.origin, service, mutation, "1","2")
 
 def do14(service):#entry_key_loss
     print service
@@ -147,6 +173,7 @@ def do14(service):#entry_key_loss
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
         spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
 
 def do15(service):#entry_operator_wrong
     print service
@@ -157,7 +184,7 @@ def do15(service):#entry_operator_wrong
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
         spirit_method.save(new_conf, service, entry.key, directory)
-
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do16(service):#entry_operator_space
     print service
     for entry in conf_entry_info:
@@ -167,7 +194,7 @@ def do16(service):#entry_operator_space
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
         spirit_method.save(new_conf, service, entry.key, directory)
-
+        mylog.log(entry.origin, service, mutation, "1","2")
 
 
 def do17(service):#entry_operator_loss
@@ -179,18 +206,60 @@ def do17(service):#entry_operator_loss
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
         spirit_method.save(new_conf, service, entry.key, directory)
-
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do18(service):#name_syn
     print service
-
+    for entry in conf_entry_info:
+        if entry.type != "NAME" :
+            continue
+        else:
+            wrong_name = "thisisaunexistingname"
+            mutation = spirit_method.instr_replace(entry.value, wrong_name,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do19(service):#name_sem
     print service
 
+
 def do20(service):#address_syn
     print service
+    for entry in conf_entry_info:
+        if entry.type != "ADDRESS" :
+            continue
+        else:
+            wrong_address = mutator.gensyn(entry.value, entry.type) #generate a list of wrong addresses
+            '''
+            wrong_address = []
+            wrong_address.append("255.255.255.256")
+            wrong_address.append("255.255.255")
+            '''
+            mutation = spirit_method.instr_replace(entry.value, wrong_address,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
 
 def do21(service):#address_sem
     print service
+    for entry in conf_entry_info:
+        if entry.type != "ADDRESS" :
+            continue
+        else:
+            wrong_address = []
+            wrong_address.append("255.255.255.255")
+            wrong_address.append("0.0.0.255")
+            mutation = spirit_method.instr_replace(entry.value, wrong_address,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
+
+
 
 def do22(service):#MV_syn
     print service
@@ -200,15 +269,41 @@ def do23(service):#MV_sem
 
 def do24(service):#enum_syn
     print service
+    for entry in conf_entry_info:
+        if entry.type != "ENUM" :
+            continue
+        else:
+            wrong_value = "WRONGVALUE"
+            mutation = spirit_method.instr_replace(entry.value, wrong_value,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
+
+
+
+
 
 def do25(service):#enum_sem
     print service
 
 def do26(service):#mail_syn
     print service
-
+    for entry in conf_entry_info:
+        if entry.type != "EMAIL" :
+            continue
+        else:
+            wrong_mail = "testmail@test"
+            mutation = spirit_method.instr_replace(entry.value, wrong_mail,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do27(service):#mail_sem
     print service
+
 
 def do28(service):#number_syn
     print service
@@ -222,18 +317,42 @@ def do28(service):#number_syn
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
             spirit_method.save(new_conf, service, entry.key, directory)
-
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do29(service):#number_sem
     print service
     for entry in conf_entry_info:
         if entry.type != "NUMB" :
             continue
-        else:
+        elif entry.constraint != "none":
+            
             sem_value = []
             constraint = entry.constraint.split()
             num_type = constraint[0]
             num_range = constraint[1]
             num_unit = constraint[2]
+            value = entry.value.split(num_unit)[0]
+            if num_range != "none":
+                min_num = int(num_range.split(',')[0][1::])
+                max_num = int(num_range.split(',')[1][:-1:])
+                min_value = str(min_num - 1)
+                max_value = str(max_num + 1)
+                if num_unit != "none":
+                    sem_value.append(min_value+num_unit)
+                    sem_value.append(max_value+num_unit)
+                else:
+                    sem_value.append(min_value)
+                    sem_value.append(max_value)
+
+
+            float_value = str(int(value)+0.5)
+            overflow_value = "99999999999999999"
+            if num_unit != "none":
+                sem_value.append(float_value+num_unit)
+                sem_value.append(overflow_value+num_unit)
+            else:
+                sem_value.append(float_value)
+                sem_value.append(overflow_value)
+            """
             if num_type == "int":
                 float_value = str(int(entry.value)+0.5)
                 overflow_value = "99999999999999999"
@@ -247,22 +366,66 @@ def do29(service):#number_sem
                 sem_value.append(min_value)
                 sem_value.append(max_value)
             if num_unit != "none":
-                print "#TODO"
+                print "#TODO" """
             mutation = spirit_method.instr_replace(entry.value, sem_value,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
             spirit_method.save(new_conf, service, entry.key, directory)
 
+        else:
+            sem_value = []
+            float_value = str(int(entry.value)+0.5)
+            overflow_value = "99999999999999999"
+            sem_value.append(float_value)
+            sem_value.append(overflow_value)
+
+            mutation = spirit_method.instr_replace(entry.value, sem_value,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
+
 def do30(service):#url_syn
     print service
-
+    for entry in conf_entry_info:
+        if entry.type != "URL" :
+            continue
+        else:
+            wrong_url = "thisisawrongurl"
+            mutation = spirit_method.instr_replace(entry.value, wrong_url,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do31(service):#url_sem
     print service
-
+    for entry in conf_entry_info:
+        if entry.type != "URL" :
+            continue
+        else:
+            wrong_url = "www.google.com"
+            mutation = spirit_method.instr_replace(entry.value, wrong_url,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do32(service):#boolean_syn
     print service
-    #todo
+    for entry in conf_entry_info:
+        if entry.type != "BOOL" :
+            continue
+        else:
+            wrong_bool = "wrongbool"
+            mutation = spirit_method.instr_replace(entry.value, wrong_bool,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
 
 def do33(service):#boolean_sem
     print service
@@ -282,13 +445,37 @@ def do33(service):#boolean_sem
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
             spirit_method.save(new_conf, service, entry.key, directory)
-            
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do34(service):#port_syn
     print service
+    for entry in conf_entry_info:
+        if entry.type != "PORT" :
+            continue
+        else:
+            wrong_port = []
+            wrong_port.append("-1")
+            wrong_port.append("655366")
+            wrong_port.append("wrongport")
+            mutation = spirit_method.instr_replace(entry.value, wrong_port,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
 
 def do35(service):#port_sem
     print service
-
+    for entry in conf_entry_info:
+        if entry.type != "PORT" :
+            continue
+        else:
+            wrong_port = "1"
+            mutation = spirit_method.instr_replace(entry.value, wrong_port,
+                                                   entry.origin)
+            new_conf = spirit_method.instr_replace(entry.origin, mutation,
+                                                   conf_origin)
+            spirit_method.save(new_conf, service, entry.key, directory)
+        mylog.log(entry.origin, service, mutation, "1","2")
 def do36(service):#path_syn
     print service
     for entry in conf_entry_info:
@@ -304,7 +491,7 @@ def do36(service):#path_syn
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
             spirit_method.save(new_conf, service, entry.key, directory)
-
+        mylog.log(entry.origin, service, mutation, "1","2")
 
 
 def do37(service):#path_sem
@@ -325,7 +512,7 @@ def do37(service):#path_sem
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
             spirit_method.save(new_conf, service, entry.key, directory)
-            
+        mylog.log(entry.origin, service, mutation, "1","2")           
 
 dict_service = {
                 #00X

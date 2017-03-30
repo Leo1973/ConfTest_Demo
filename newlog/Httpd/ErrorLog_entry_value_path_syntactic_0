@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Sun 2017-01-15 18:59:16 CST; 4s ago
+  Process: 26702 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 26701 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 26701 (code=exited, status=1/FAILURE)
+
+Jan 15 18:59:16 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 18:59:16 bogon httpd[26701]: (2)No such file or directory: AH02291: Cannot access directory '/etc/httpd/\\logs/' for main error log
+Jan 15 18:59:16 bogon httpd[26701]: AH00014: Configuration check failed
+Jan 15 18:59:16 bogon systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jan 15 18:59:16 bogon kill[26702]: kill: cannot find process ""
+Jan 15 18:59:16 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 18:59:16 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 18:59:16 bogon systemd[1]: Unit httpd.service entered failed state.

@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lenseinfo>
     <Entrys>
-        <Entry1 key="socket" value = "/var/lib/mysql/mysql.sock" operator = "=" constraint = "none" type = "PATH" origin = "socket=/var/lib/mysql/mysql.sock"></Entry1>
-        <Entry2 key="symbolic-links" value = "0" operator = "=" constraint = "10" type = "BOOL" origin = "symbolic-links=0"></Entry2>
-        <!-- <Entry3 key="debuglevel" value = "2" operator = "=" constraint = "int [0,10] none" type = "NUMB" origin = "debuglevel=2"></Entry3> -->
+        <Entry1 key='symbolic-links' value = '0' operator = ' = ' constraint = '10' type = 'BOOL' origin = 'symbolic-links = 0'></Entry1>
+        <Entry2 key='port' value = '3306' operator = ' = ' constraint = 'none' type = 'PORT' origin = 'port = 3306'></Entry2>
+        <Entry3 key='socket' value = '/var/lib/mysql/mysql.sock' operator = ' = ' constraint = 'none' type = 'PATH' origin = 'socket = /var/lib/mysql/mysql.sock'></Entry3>
+        <Entry4 key='key_buffer_size' value = '384M' operator = ' = ' constraint = 'int none M' type = 'NUMB' origin = 'key_buffer_size = 384M'></Entry4>
+        <Entry5 key='max_allowed_packet' value = '1M' operator = ' = ' constraint = 'int none M' type = 'NUMB' origin = 'max_allowed_packet = 1M'></Entry5>
+        <Entry6 key='table_open_cache' value = '512' operator = ' = ' constraint = 'int none none' type = 'NUMB' origin = 'table_open_cache = 512'></Entry6>
+        <Entry7 key='sort_buffer_size' value = '2M' operator = ' = ' constraint = 'int none M' type = 'NUMB' origin = 'sort_buffer_size = 2M'></Entry7>
+        <Entry8 key='read_buffer_size' value = '2M' operator = ' = ' constraint = 'int none M' type = 'NUMB' origin = 'read_buffer_size = 2M'></Entry8>
+        <Entry9 key='read_rnd_buffer_size' value = '8M' operator = ' = ' constraint = 'int none M' type = 'NUMB' origin = 'read_rnd_buffer_size = 8M'></Entry9>
+        <Entry10 key='myisam_sort_buffer_size' value = '64M' operator = ' = ' constraint = 'int none M' type = 'NUMB' origin = 'myisam_sort_buffer_size = 64M'></Entry10>
+        <Entry11 key='thread_cache_size' value = '8' operator = ' = ' constraint = 'int none none' type = 'NUMB' origin = 'thread_cache_size = 8'></Entry11>
+        <Entry12 key='query_cache_size' value = '32M' operator = ' = ' constraint = 'int none M' type = 'NUMB' origin = 'query_cache_size = 32M'></Entry12>
+        <Entry13 key='thread_concurrency' value = '8' operator = ' = ' constraint = 'int none none' type = 'NUMB' origin = 'thread_concurrency = 8'></Entry13>
+        <Entry14 key='tmpdir' value = '/tmp/' operator = ' = ' constraint = 'none' type = 'PATH' origin = 'tmpdir = /tmp/'></Entry14>
+        <Entry15 key='log-bin' value = 'mysql-bin' operator = ' = ' constraint = 'none' type = 'ENUM' origin = 'log-bin = mysql-bin'></Entry15>
+        <Entry16 key='server-id' value = '1' operator = ' = ' constraint = 'none' type = 'NUMB' origin = 'server-id = 1'></Entry16>
+        <Entry17 key='binlog_format' value = 'mixed' operator = ' = ' constraint = 'none' type = 'ENUM' origin = 'binlog_format = mixed'></Entry17>
+        <Entry18 key='innodb_data_home_dir' value = '/var/lib/mysql' operator = ' = ' constraint = 'none' type = 'PATH' origin = 'innodb_data_home_dir = /var/lib/mysql'></Entry18>
+        <Entry19 key='innodb_log_group_home_dir' value = '/var/lib/mysql' operator = ' = ' constraint = 'none' type = 'PATH' origin = 'innodb_log_group_home_dir = /var/lib/mysql'></Entry19>
+        <Entry20 key='innodb_buffer_pool_size' value = '384M' operator = ' = ' constraint = 'int none M' type = 'NUMB' origin = 'innodb_buffer_pool_size = 384M'></Entry20>
+        <Entry21 key='innodb_additional_mem_pool_size' value = '20M' operator = ' = ' constraint = 'int none M' type = 'NUMB' origin = 'innodb_additional_mem_pool_size = 20M'></Entry21>
+        <Entry22 key='innodb_log_buffer_size' value = '8M' operator = ' = ' constraint = 'int none M' type = 'NUMB' origin = 'innodb_log_buffer_size = 8M'></Entry22>
+        <Entry23 key='innodb_flush_log_at_trx_commit' value = '1' operator = ' = ' constraint = '10' type = 'BOOL' origin = 'innodb_flush_log_at_trx_commit = 1'></Entry23>
+        <Entry24 key='innodb_lock_wait_timeout' value = '50' operator = ' = ' constraint = 'int none none' type = 'NUMB' origin = 'innodb_lock_wait_timeout = 50'></Entry24>
+        <Entry25 key='log-error' value = '/var/log/mariadb/mariadb.log' operator = ' = ' constraint = 'none' type = 'PATH' origin = 'log-error = /var/log/mariadb/mariadb.log'></Entry25>
+        <Entry26 key='pid-file' value = '/var/run/mariadb/mariadb.pid' operator = ' = ' constraint = 'none' type = 'PATH' origin = 'pid-file = /var/run/mariadb/mariadb.pid'></Entry26>
+
+
     </Entrys>
     <Sections>
         <Section1 name = "mysqld" operator = "[*]" origin = "[mysqld]"></Section1>

@@ -1,0 +1,12 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Sun 2017-01-15 19:01:18 CST; 4s ago
+  Process: 26930 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 26927 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=0/SUCCESS)
+ Main PID: 26927 (code=exited, status=0/SUCCESS)
+
+Jan 15 19:01:17 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 19:01:18 bogon kill[26930]: kill: cannot find process ""
+Jan 15 19:01:18 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 19:01:18 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 19:01:18 bogon systemd[1]: Unit httpd.service entered failed state.

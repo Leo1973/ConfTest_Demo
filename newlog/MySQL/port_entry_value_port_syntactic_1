@@ -1,0 +1,22 @@
+170116 14:15:51 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170116 14:15:51 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+170116 14:15:51 InnoDB: The InnoDB memory heap is disabled
+170116 14:15:51 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+170116 14:15:51 InnoDB: Compressed tables use zlib 1.2.7
+170116 14:15:51 InnoDB: Using Linux native AIO
+170116 14:15:51 InnoDB: Initializing buffer pool, size = 384.0M
+170116 14:15:51 InnoDB: Completed initialization of buffer pool
+170116 14:15:51 InnoDB: highest supported file format is Barracuda.
+170116 14:15:51  InnoDB: Waiting for the background threads to start
+170116 14:15:52 Percona XtraDB (http://www.percona.com) 5.5.40-MariaDB-36.1 started; log sequence number 1597945
+170116 14:15:52 [Note] Plugin 'FEEDBACK' is disabled.
+170116 14:15:52 [Note] Server socket created on IP: '0.0.0.0'.
+170116 14:15:52 [ERROR] Can't start server: Bind on TCP/IP port. Got error: 13: Permission denied
+170116 14:15:52 [ERROR] Do you already have another mysqld server running on port: 655366 ?
+170116 14:15:52 [ERROR] Aborting
+
+170116 14:15:52  InnoDB: Starting shutdown...
+170116 14:15:53  InnoDB: Shutdown completed; log sequence number 1597945
+170116 14:15:53 [Note] /usr/libexec/mysqld: Shutdown complete
+
+170116 14:15:53 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

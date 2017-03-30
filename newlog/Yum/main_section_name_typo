@@ -27,7 +27,3 @@ Repository 'nain' is missing name in configuration, using id
             yum-config-manager --save --setopt=<repoid>.skip_if_unavailable=true
 
 Cannot find a valid baseurl for repo: nain
-Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os&infra=stock error was
-14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
-Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=extras&infra=stock error was
-14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"

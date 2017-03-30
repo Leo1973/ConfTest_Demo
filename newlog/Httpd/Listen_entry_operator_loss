@@ -1,15 +1,15 @@
 httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
-   Active: failed (Result: exit-code) since Thu 2016-09-22 10:59:41 CST; 888ms ago
-  Process: 28161 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
-  Process: 28160 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
- Main PID: 28160 (code=exited, status=1/FAILURE)
+   Active: failed (Result: exit-code) since Sun 2017-01-15 18:49:32 CST; 4s ago
+  Process: 24752 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 24751 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 24751 (code=exited, status=1/FAILURE)
 
-Sep 22 10:59:41 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
-Sep 22 10:59:41 localhost.localdomain httpd[28160]: AH00526: Syntax error on line 42 of /etc/httpd/conf/httpd.conf:
-Sep 22 10:59:41 localhost.localdomain httpd[28160]: Invalid command 'Listen80', perhaps misspelled or defined by a module not included in the server configuration
-Sep 22 10:59:41 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
-Sep 22 10:59:41 localhost.localdomain kill[28161]: kill: cannot find process ""
-Sep 22 10:59:41 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
-Sep 22 10:59:41 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
-Sep 22 10:59:41 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.
+Jan 15 18:49:32 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 18:49:32 bogon httpd[24751]: AH00526: Syntax error on line 4 of /etc/httpd/conf/httpd.conf:
+Jan 15 18:49:32 bogon httpd[24751]: Invalid command 'Listen80', perhaps misspelled or defined by a module not included in the server configuration
+Jan 15 18:49:32 bogon systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jan 15 18:49:32 bogon kill[24752]: kill: cannot find process ""
+Jan 15 18:49:32 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 18:49:32 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 18:49:32 bogon systemd[1]: Unit httpd.service entered failed state.

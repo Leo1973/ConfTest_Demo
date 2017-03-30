@@ -1,0 +1,7 @@
+170116 14:13:09 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Unknown suffix '.' used for variable 'read_buffer_size' (value '2.5M')
+170116 14:13:09 [Warning] option 'read_buffer_size': unsigned value 0 adjusted to 8192
+170116 14:13:09 [ERROR] /usr/libexec/mysqld: Error while setting value '2.5M' to 'read_buffer_size'
+170116 14:13:09 [ERROR] Aborting
+
+170116 14:13:09 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lenseinfo>
+    <Entrys>
+        <Entry1 key="hba_file" value = "'/var/lib/pgsql/data/pg_hba.conf'" operator = " = " constraint = "none" type = "PATH" origin = "hba_file = '/var/lib/pgsql/data/pg_hba.conf'"></Entry1>
+        <Entry2 key="listen_addresses" value = "'localhost'" operator = " = " constraint = "none" type = "ADDRESS" origin = "listen_addresses = 'localhost'"></Entry2>
+        <Entry3 key="port" value = "5432" operator = " = " constraint = "none" type = "PORT" origin = "port = 5432"></Entry3>
+        <Entry4 key="max_connections" value = "100" operator = " = " constraint = "none" type = "NUMB" origin = "max_connections = 100"></Entry4>
+        <Entry5 key="superuser_reserved_connections" value = "3" operator = " = " constraint = "none" type = "NUMB" origin = "superuser_reserved_connections = 3"></Entry5>
+        <Entry6 key="unix_socket_directories" value = "'/var/run/postgresql'" operator = " = " constraint = "none" type = "PATH" origin = "unix_socket_directories = '/var/run/postgresql'"></Entry6>
+        <Entry7 key="unix_socket_group" value = "''" operator = " = " constraint = "none" type = "NAME" origin = "unix_socket_group = ''"></Entry7>
+        <Entry8 key="bonjour" value = "off" operator = " = " constraint = "of" type = "BOOL" origin = "bonjour = off"></Entry8>
+        <Entry9 key="bonjour_name" value = "'Leo'" operator = " = " constraint = "none" type = "NAME" origin = "bonjour_name = 'Leo'"></Entry9>
+        <Entry10 key="authentication_timeout" value = "60s" operator = " = " constraint = "int [1,600] s" type = "NUMB" origin = "authentication_timeout = 60s"></Entry10>
+        <Entry11 key="ssl" value = "off" operator = " = " constraint = "of" type = "BOOL" origin = "ssl = off"></Entry11>
+        <Entry12 key="ssl_cert_file" value = "'server.crt'" operator = " = " constraint = "none" type = "PATH" origin = "ssl_cert_file = 'server.crt'"></Entry12>
+        <Entry13 key="ssl_key_file" value = "'server.key'" operator = " = " constraint = "none" type = "PATH" origin = "ssl_key_file = 'server.key'"></Entry13>
+        <Entry14 key="password_encryption" value = "on" operator = " = " constraint = "of" type = "BOOL" origin = "password_encryption = on"></Entry14>
+        <Entry15 key="db_user_namespace" value = "off" operator = " = " constraint = "of" type = "BOOL" origin = "db_user_namespace = off"></Entry15>
+        <Entry16 key="krb_srvname" value = "'postgres'" operator = " = " constraint = "none" type = "NAME" origin = "krb_srvname = 'postgres'"></Entry16>
+        <Entry17 key="krb_caseins_users" value = "off" operator = " = " constraint = "of" type = "BOOL" origin = "krb_caseins_users = off"></Entry17>
+        <Entry18 key="tcp_keepalives_idle" value = "0" operator = " = " constraint = "none" type = "NUMB" origin = "tcp_keepalives_idle = 0"></Entry18>
+        <Entry19 key="tcp_keepalives_interval" value = "0" operator = " = " constraint = "none" type = "NUMB" origin = "tcp_keepalives_interval = 0"></Entry19>
+        <Entry20 key="tcp_keepalives_count" value = "0" operator = " = " constraint = "none" type = "NUMB" origin = "tcp_keepalives_count = 0"></Entry20>
+        <Entry21 key="shared_buffers" value = "256kB" operator = " = " constraint = "int [128,65536] kB" type = "NUMB" origin = "shared_buffers = 256kB"></Entry21>
+        <Entry22 key="temp_buffers" value = "1600kB" operator = " = " constraint = "int [800,65536] kB" type = "NUMB" origin = "temp_buffers = 1600kB"></Entry22>
+        <Entry23 key="max_prepared_transactions" value = "0" operator = " = " constraint = "none" type = "NUMB" origin = "max_prepared_transactions = 0"></Entry23>
+        <Entry24 key="work_mem" value = "128kB" operator = " = " constraint = "int [64,65536] kB" type = "NUMB" origin = "work_mem = 128kB"></Entry24>
+        <Entry25 key="maintenance_work_mem" value = "16MB" operator = " = " constraint = "int [1,64] MB" type = "NUMB" origin = "maintenance_work_mem = 16MB"></Entry25>
+        <Entry26 key="max_stack_depth" value = "100kB" operator = " = " constraint = "int [100,65536] kB" type = "NUMB" origin = "max_stack_depth = 100kB"></Entry26>
+        <Entry27 key="temp_file_limit" value = "-1" operator = " = " constraint = "int [-1,1000] none" type = "NUMB" origin = "temp_file_limit = -1"></Entry27>
+        <Entry28 key="max_files_per_process" value = "1000" operator = " = " constraint = "int [25,1000] none" type = "NUMB" origin = "max_files_per_process = 1000"></Entry28>
+        <Entry29 key="vacuum_cost_delay" value = "0ms" operator = " = " constraint = "int [0,100] ms" type = "NUMB" origin = "vacuum_cost_delay = 0ms"></Entry29>
+        <Entry30 key="vacuum_cost_page_hit" value = "1" operator = " = " constraint = "int [0,10000] none" type = "NUMB" origin = "vacuum_cost_page_hit = 1"></Entry30>
+        <Entry31 key="vacuum_cost_page_miss" value = "10" operator = " = " constraint = "int [0,10000] none" type = "NUMB" origin = "vacuum_cost_page_miss = 10"></Entry31>
+        <Entry32 key="vacuum_cost_page_dirty" value = "20" operator = " = " constraint = "int [0,10000] none" type = "NUMB" origin = "vacuum_cost_page_dirty = 20"></Entry32>
+        <Entry33 key="vacuum_cost_limit" value = "200" operator = " = " constraint = "int [1,10000] none" type = "NUMB" origin = "vacuum_cost_limit = 200"></Entry33>
+
+
+    </Entrys>
+    <Sections>
+        <!--
+        <Section1 name = "mysqld" operator = "[*]" origin = "[mysqld]"></Section1> 
+        -->
+    </Sections>
+</lenseinfo>
+
+

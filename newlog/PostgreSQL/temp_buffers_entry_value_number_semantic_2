@@ -1,0 +1,14 @@
+postgresql.service - PostgreSQL database server
+   Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled)
+   Active: failed (Result: exit-code) since Mon 2017-01-16 20:08:54 CST; 3s ago
+  Process: 86216 ExecStart=/usr/bin/pg_ctl start -D ${PGDATA} -s -o -p ${PGPORT} -w -t 300 (code=exited, status=1/FAILURE)
+  Process: 86211 ExecStartPre=/usr/bin/postgresql-check-db-dir ${PGDATA} (code=exited, status=0/SUCCESS)
+
+Jan 16 20:08:53 bogon systemd[1]: Starting PostgreSQL database server...
+Jan 16 20:08:53 bogon pg_ctl[86216]: LOG:  syntax error in file "/var/lib/pgsql/data/postgresql.conf" line 44, near token "kB"
+Jan 16 20:08:53 bogon pg_ctl[86216]: FATAL:  configuration file "/var/lib/pgsql/data/postgresql.conf" contains errors
+Jan 16 20:08:54 bogon pg_ctl[86216]: pg_ctl: could not start server
+Jan 16 20:08:54 bogon pg_ctl[86216]: Examine the log output.
+Jan 16 20:08:54 bogon systemd[1]: postgresql.service: control process exited, code=exited status=1
+Jan 16 20:08:54 bogon systemd[1]: Failed to start PostgreSQL database server.
+Jan 16 20:08:54 bogon systemd[1]: Unit postgresql.service entered failed state.

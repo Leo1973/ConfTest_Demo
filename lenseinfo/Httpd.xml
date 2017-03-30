@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lenseinfo>
     <Entrys>
-        <Entry1 key="ServerRoot" value = '"/etc/httpd"' operator = " " constraint = '"' type = "PATH" origin = 'ServerRoot "/etc/httpd"'></Entry1>
-        <Entry2 key="EnableSendfile" value = "on" operator = " " constraint = "of" type = "BOOL" origin = "EnableSendfile on"></Entry2>
-        <Entry3 key="Listen" value = "80" operator = " " constraint = "" type = "PORT" origin = "Listen 80"></Entry3>
+                <Entry1 key='ServerRoot' value = '"/etc/httpd"' operator = ' ' constraint = 'none' type = 'PATH' origin = 'ServerRoot "/etc/httpd"'></Entry1>
+        <Entry2 key='Listen' value = '80' operator = ' ' constraint = 'none' type = 'PORT' origin = 'Listen 80'></Entry2>
+        <Entry3 key='User' value = 'apache' operator = ' ' constraint = 'none' type = 'USER' origin = 'User apache'></Entry3>
+        <Entry4 key='Group' value = 'apache' operator = ' ' constraint = 'none' type = 'GROUP' origin = 'Group apache'></Entry4>
+        <Entry5 key='ServerAdmin' value = 'root@localhost' operator = ' ' constraint = 'none' type = 'EMAIL' origin = 'ServerAdmin root@localhost'></Entry5>
+        <Entry6 key='ServerName' value = 'www.example.com:80' operator = ' ' constraint = 'none' type = 'URL' origin = 'ServerName www.example.com:80'></Entry6>
+        <Entry7 key='' value = '' operator = ' ' constraint = 'none' type = 'ENUM' origin = '    AllowOverride none'></Entry7>
+        <Entry8 key='DocumentRoot' value = '"/var/www/html"' operator = ' ' constraint = 'none' type = 'PATH' origin = 'DocumentRoot "/var/www/html"'></Entry8>
+        <Entry9 key='' value = '' operator = ' ' constraint = 'none' type = 'ENUM' origin = '    AllowOverride None'></Entry9>
+        <Entry10 key='' value = '' operator = ' ' constraint = 'none' type = 'ENUM' origin = '    AllowOverride None'></Entry10>
+        <Entry11 key='' value = '' operator = ' ' constraint = 'none' type = 'PATH' origin = '    DirectoryIndex index.html'></Entry11>
+        <Entry12 key='ErrorLog' value = '"logs/error_log"' operator = ' ' constraint = 'none' type = 'PATH' origin = 'ErrorLog "logs/error_log"'></Entry12>
+        <Entry13 key='LogLevel' value = 'warn' operator = ' ' constraint = 'none' type = 'ENUM' origin = 'LogLevel warn'></Entry13>
+        <Entry14 key='' value = '' operator = ' ' constraint = 'none' type = 'ENUM' origin = '    AllowOverride None'></Entry14>
+        <Entry15 key='' value = '' operator = ' ' constraint = 'none' type = 'ENUM' origin = '    Options None'></Entry15>
+        <Entry16 key='' value = '' operator = ' ' constraint = 'none' type = 'PATH' origin = '    TypesConfig /etc/mime.types'></Entry16>
+        <Entry17 key='AddDefaultCharset' value = 'UTF-8' operator = ' ' constraint = 'none' type = 'ENUM' origin = 'AddDefaultCharset UTF-8'></Entry17>
+        <Entry18 key='' value = '' operator = ' ' constraint = 'none' type = 'PATH' origin = '    MIMEMagicFile conf/magic'></Entry18>
+        <Entry19 key='EnableMMAP' value = 'off' operator = ' ' constraint = 'none' type = 'BOOL' origin = 'EnableMMAP off'></Entry19>
+        <Entry20 key='EnableSendfile' value = 'on' operator = ' ' constraint = 'none' type = 'BOOL' origin = 'EnableSendfile on'></Entry20>
+        <Entry21 key='IncludeOptional' value = 'conf.d/*.conf' operator = ' ' constraint = 'none' type = 'PATH' origin = 'IncludeOptional conf.d/*.conf'></Entry21>
+        <Entry22 key='AcceptPathInfo' value = 'on' operator = ' ' constraint = 'none' type = 'BOOL' origin = 'AcceptPathInfo on'></Entry22>
+        <Entry23 key='AllowEncodedSlashes' value = 'off' operator = ' ' constraint = 'none' type = 'BOOL' origin = 'AllowEncodedSlashes off'></Entry23>
+        <Entry24 key='ContentDigest' value = 'off' operator = ' ' constraint = 'none' type = 'BOOL' origin = 'ContentDigest off'></Entry24>
+        <Entry25 key='ExtendedStatus' value = 'off' operator = ' ' constraint = 'none' type = 'BOOL' origin = 'ExtendedStatus off'></Entry25>
+        <Entry26 key='KeepAliveTimeout' value = '5' operator = ' ' constraint = 'none' type = 'NUM' origin = 'KeepAliveTimeout 5'></Entry26>
+        <Entry27 key='LimitInternalRecursion' value = '10' operator = ' ' constraint = 'none' type = 'NUM' origin = 'LimitInternalRecursion 10'></Entry27>
+        <Entry28 key='LimitRequestBody' value = '0' operator = ' ' constraint = 'none' type = 'NUM' origin = 'LimitRequestBody 0'></Entry28>
+        <Entry29 key='LimitRequestFields' value = '100' operator = ' ' constraint = 'none' type = 'NUM' origin = 'LimitRequestFields 100'></Entry29>
+        <Entry30 key='LimitRequestFieldSize' value = '8190' operator = ' ' constraint = 'none' type = 'NUM' origin = 'LimitRequestFieldSize 8190'></Entry30>
+
     </Entrys>
     <Sections>
     </Sections>

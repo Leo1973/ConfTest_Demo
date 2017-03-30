@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Sun 2017-01-15 18:42:33 CST; 4s ago
+  Process: 23996 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 23995 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 23995 (code=exited, status=1/FAILURE)
+
+Jan 15 18:42:33 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 18:42:33 bogon httpd[23995]: AH00526: Syntax error on line 51 of /etc/httpd/conf/httpd.conf:
+Jan 15 18:42:33 bogon httpd[23995]: Log level keyword must be one of emerg/alert/crit/error/warn/notice/info/debug/trace1/.../trace8
+Jan 15 18:42:33 bogon systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jan 15 18:42:33 bogon kill[23996]: kill: cannot find process ""
+Jan 15 18:42:33 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 18:42:33 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 18:42:33 bogon systemd[1]: Unit httpd.service entered failed state.

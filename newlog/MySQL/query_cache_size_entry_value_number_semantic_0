@@ -1,0 +1,6 @@
+170116 14:13:57 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Unknown suffix '.' used for variable 'query_cache_size' (value '32.5M')
+170116 14:13:57 [ERROR] /usr/libexec/mysqld: Error while setting value '32.5M' to 'query_cache_size'
+170116 14:13:57 [ERROR] Aborting
+
+170116 14:13:57 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

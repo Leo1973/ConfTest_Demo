@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Sun 2017-01-15 18:40:43 CST; 4s ago
+  Process: 23814 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 23813 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 23813 (code=exited, status=1/FAILURE)
+
+Jan 15 18:40:43 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 18:40:43 bogon httpd[23813]: AH00526: Syntax error on line 116 of /etc/httpd/conf/httpd.conf:
+Jan 15 18:40:43 bogon httpd[23813]: Invalid command '8190', perhaps misspelled or defined by a module not included in the server configuration
+Jan 15 18:40:43 bogon systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jan 15 18:40:43 bogon kill[23814]: kill: cannot find process ""
+Jan 15 18:40:43 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 18:40:43 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 18:40:43 bogon systemd[1]: Unit httpd.service entered failed state.

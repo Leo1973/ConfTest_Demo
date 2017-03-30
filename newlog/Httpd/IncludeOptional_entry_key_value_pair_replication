@@ -1,0 +1,17 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Sun 2017-01-15 18:26:46 CST; 4s ago
+  Process: 21628 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 21626 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 21626 (code=exited, status=1/FAILURE)
+
+Jan 15 18:26:46 bogon httpd[21626]: [Sun Jan 15 18:26:46.226534 2017] [alias:warn] [pid 21626] AH00671: The Alias directive in /etc/httpd/conf.d/welcome.conf at line 20 will probably never match because it overlaps an earlier Alias.
+Jan 15 18:26:46 bogon httpd[21626]: [Sun Jan 15 18:26:46.226536 2017] [alias:warn] [pid 21626] AH00671: The Alias directive in /etc/httpd/conf.d/welcome.conf at line 21 will probably never match because it overlaps an earlier Alias.
+Jan 15 18:26:46 bogon httpd[21626]: [Sun Jan 15 18:26:46.226538 2017] [alias:warn] [pid 21626] AH00671: The Alias directive in /etc/httpd/conf.d/welcome.conf at line 22 will probably never match because it overlaps an earlier Alias.
+Jan 15 18:26:46 bogon httpd[21626]: (98)Address already in use: AH00072: make_sock: could not bind to address [::]:8443
+Jan 15 18:26:46 bogon httpd[21626]: (98)Address already in use: AH00072: make_sock: could not bind to address [::]:443
+Jan 15 18:26:46 bogon systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jan 15 18:26:46 bogon kill[21628]: kill: cannot find process ""
+Jan 15 18:26:46 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 18:26:46 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 18:26:46 bogon systemd[1]: Unit httpd.service entered failed state.

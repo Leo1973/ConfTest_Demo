@@ -1,0 +1,13 @@
+170116 14:11:57 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170116 14:11:57 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+Unknown suffix 't' used for variable 'innodb-buffer-pool-size' (value 'thisisatest')
+170116 14:11:57 [Warning] option 'innodb-buffer-pool-size': signed value 0 adjusted to 5242880
+170116 14:11:57 [ERROR] /usr/libexec/mysqld: Error while setting value 'thisisatest' to 'innodb-buffer-pool-size'
+170116 14:11:57 [ERROR] Parsing options for plugin 'InnoDB' failed.
+170116 14:11:57 [Note] Plugin 'FEEDBACK' is disabled.
+170116 14:11:57 [ERROR] /usr/libexec/mysqld: unknown variable 'innodb_data_home_dir=/var/lib/mysql'
+170116 14:11:57 [ERROR] Aborting
+
+170116 14:11:57 [Note] /usr/libexec/mysqld: Shutdown complete
+
+170116 14:11:57 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

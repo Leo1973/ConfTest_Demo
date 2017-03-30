@@ -1,0 +1,17 @@
+
+module mypol 1.0;
+
+require {
+	type unconfined_t;
+	type var_run_t;
+	type squid_t;
+	class process signal;
+	class file { read open };
+}
+
+#============= squid_t ==============
+allow squid_t unconfined_t:process signal;
+allow squid_t var_run_t:file open;
+
+#!!!! This avc is allowed in the current policy
+allow squid_t var_run_t:file read;

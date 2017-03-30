@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Sun 2017-01-15 18:55:13 CST; 4s ago
+  Process: 25707 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 25706 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 25706 (code=exited, status=1/FAILURE)
+
+Jan 15 18:55:13 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 18:55:13 bogon httpd[25706]: AH00526: Syntax error on line 102 of /etc/httpd/conf/httpd.conf:
+Jan 15 18:55:13 bogon httpd[25706]: AllowEncodedSlashes must be On, Off, or NoDecode
+Jan 15 18:55:13 bogon systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jan 15 18:55:13 bogon kill[25707]: kill: cannot find process ""
+Jan 15 18:55:13 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 18:55:13 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 18:55:13 bogon systemd[1]: Unit httpd.service entered failed state.

@@ -1,0 +1,5 @@
+
+*** FATAL CONFIG FILE ERROR ***
+Reading the configuration file, at line 128
+>>> 'daemonize on'
+argument must be 'yes' or 'no'

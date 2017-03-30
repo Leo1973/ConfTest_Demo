@@ -1,0 +1,17 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Sun 2017-01-15 18:58:32 CST; 4s ago
+  Process: 26609 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 26606 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 26606 (code=exited, status=1/FAILURE)
+
+Jan 15 18:58:32 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 18:58:32 bogon httpd[26606]: (13)Permission denied: AH00072: make_sock: could not bind to address [::]:1
+Jan 15 18:58:32 bogon httpd[26606]: (13)Permission denied: AH00072: make_sock: could not bind to address 0.0.0.0:1
+Jan 15 18:58:32 bogon httpd[26606]: no listening sockets available, shutting down
+Jan 15 18:58:32 bogon httpd[26606]: AH00015: Unable to open logs
+Jan 15 18:58:32 bogon systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jan 15 18:58:32 bogon kill[26609]: kill: cannot find process ""
+Jan 15 18:58:32 bogon systemd[1]: httpd.service: control process exited, code=exited status=1
+Jan 15 18:58:32 bogon systemd[1]: Failed to start The Apache HTTP Server.
+Jan 15 18:58:32 bogon systemd[1]: Unit httpd.service entered failed state.

@@ -1,0 +1,2 @@
+Loaded plugins: fastestmirror, langpacks
+Options error: Error parsing "localpkg_gpgcheck = 'on'": invalid boolean value

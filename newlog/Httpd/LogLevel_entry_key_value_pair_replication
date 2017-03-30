@@ -1,0 +1,17 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: active (running) since Sun 2017-01-15 18:26:02 CST; 4s ago
+ Main PID: 21511 (httpd)
+   Status: "Processing requests..."
+   CGroup: /system.slice/httpd.service
+           ├─21511 /usr/sbin/httpd -DFOREGROUND
+           ├─21516 /usr/libexec/nss_pcache 34308184 off /etc/httpd/alias
+           ├─21521 /usr/sbin/httpd -DFOREGROUND
+           ├─21522 /usr/sbin/httpd -DFOREGROUND
+           ├─21523 /usr/sbin/httpd -DFOREGROUND
+           ├─21524 /usr/sbin/httpd -DFOREGROUND
+           ├─21525 /usr/sbin/httpd -DFOREGROUND
+           └─21526 /usr/sbin/httpd -DFOREGROUND
+
+Jan 15 18:26:02 bogon systemd[1]: Starting The Apache HTTP Server...
+Jan 15 18:26:02 bogon systemd[1]: Started The Apache HTTP Server.
