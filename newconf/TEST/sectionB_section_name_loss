@@ -5,7 +5,7 @@ option1_port = 10000
 option2_url = http://www.baidu.com
 #NUMB int none M
 option3_number = 1000M
-[sectionB]
+[]
 #ADDRESS
 option4_address = 127.0.0.1
 #ENUM $shitou jiandao

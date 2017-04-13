@@ -4,7 +4,7 @@ option1_port = 10000
 #URL
 option2_url = http://www.baidu.com
 #NUMB int none M
-option3_number = 1000M
+option3_number = abcM
 [sectionB]
 #ADDRESS
 option4_address = 127.0.0.1

@@ -7414,3 +7414,774 @@ vacuum_cost_limit = 200</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l>
 [329]: TARGET:<t>unix_socket_directories = '/var/run/postgresql'</t> OPERATOR:<o>entry_value_path_semantic</o> RESULT:<r>[unix_socket_directories = /abc,unix_socket_directories = /cba/abc,unix_socket_directories = /spirittest,unix_socket_directories = /spirittest/spirit,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
 [330]: TARGET:<t>ssl_cert_file = 'server.crt'</t> OPERATOR:<o>entry_value_path_semantic</o> RESULT:<r>[ssl_cert_file = /abc,ssl_cert_file = /cba/abc,ssl_cert_file = /spirittest,ssl_cert_file = /spirittest/spirit,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
 [331]: TARGET:<t>ssl_key_file = 'server.key'</t> OPERATOR:<o>entry_value_path_semantic</o> RESULT:<r>[ssl_key_file = /abc,ssl_key_file = /cba/abc,ssl_key_file = /spirittest,ssl_key_file = /spirittest/spirit,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[1]: TARGET:<t></t> OPERATOR:<o>section_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[2]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[3]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[4]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionA]
+[sectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[5]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionB]
+[sectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[6]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[7]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[8]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[9]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[10]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[11]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[12]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionA></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[13]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionB></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[14]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionA</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[15]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionB</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[16]: TARGET:<t></t> OPERATOR:<o>entry_key_value_pair_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[17]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[18]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[19]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[20]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[21]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[22]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[23]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[24]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[25]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option1_port = 10000
+option1_port = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[26]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option2_url = http://www.baidu.com
+option2_url = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[27]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option3_number = 1000M
+option3_number = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[28]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option4_address = 127.0.0.1
+option4_address = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[29]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option5_enum = shitou
+option5_enum = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[30]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option6_mail = leonut1993@gmail.com
+option6_mail = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[31]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option7_bool = on
+option7_bool = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[32]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option8_path =  /etc/test.conf
+option8_path =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[33]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option1_porttypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[34]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option2_urltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[35]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option3_numbertypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[36]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option4_addresstypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[37]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option5_enumtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[38]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option6_mailtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[39]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option7_booltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[40]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option8_pathtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[41]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option1_portsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[42]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option2_urlsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[43]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option3_numbersens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[44]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option4_addresssens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[45]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option5_enumsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[46]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option6_mailsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[47]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option7_boolsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[48]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option8_pathsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[49]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[50]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[51]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[52]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[53]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[54]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[55]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[56]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[57]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option1_port=10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[58]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option2_url=http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[59]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option3_number 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[60]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option4_address 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[61]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option5_enum shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[62]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option6_mail=leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[63]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option7_bool on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[64]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option8_path  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[65]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option1_port  =  10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[66]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option2_url  =  http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[67]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option3_number  =  1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[68]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option4_address  =  127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[69]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option5_enum  =  shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[70]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option6_mail  =  leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[71]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option7_bool  =  on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[72]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option8_path  =   /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[73]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option1_port10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[74]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option2_urlhttp://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[75]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option3_number1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[76]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option4_address127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[77]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option5_enumshitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[78]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option6_mailleonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[79]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option7_boolon</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[80]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option8_path /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[1]: TARGET:<t></t> OPERATOR:<o>section_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[2]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[3]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[4]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionA]
+[sectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[5]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionB]
+[sectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[6]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[7]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[8]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[9]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[10]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[11]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[12]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionA></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[13]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionB></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[14]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionA</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[15]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionB</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[16]: TARGET:<t></t> OPERATOR:<o>entry_key_value_pair_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[17]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[18]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[19]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[20]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[21]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[22]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[23]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[24]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[25]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option1_port = 10000
+option1_port = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[26]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option2_url = http://www.baidu.com
+option2_url = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[27]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option3_number = 1000M
+option3_number = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[28]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option4_address = 127.0.0.1
+option4_address = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[29]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option5_enum = shitou
+option5_enum = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[30]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option6_mail = leonut1993@gmail.com
+option6_mail = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[31]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option7_bool = on
+option7_bool = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[32]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option8_path =  /etc/test.conf
+option8_path =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[33]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option1_porttypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[34]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option2_urltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[35]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option3_numbertypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[36]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option4_addresstypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[37]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option5_enumtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[38]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option6_mailtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[39]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option7_booltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[40]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option8_pathtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[41]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option1_portsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[42]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option2_urlsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[43]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option3_numbersens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[44]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option4_addresssens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[45]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option5_enumsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[46]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option6_mailsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[47]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option7_boolsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[48]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option8_pathsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[49]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[50]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[51]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[52]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[53]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[54]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[55]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[56]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[57]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option1_port=10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[58]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option2_url=http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[59]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option3_number=1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[60]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option4_address 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[61]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option5_enum=shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[62]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option6_mail leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[63]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option7_bool=on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[64]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option8_path  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[65]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option1_port  =  10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[66]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option2_url  =  http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[67]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option3_number  =  1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[68]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option4_address  =  127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[69]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option5_enum  =  shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[70]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option6_mail  =  leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[71]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option7_bool  =  on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[72]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option8_path  =   /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[73]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option1_port10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[74]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option2_urlhttp://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[75]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option3_number1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[76]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option4_address127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[77]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option5_enumshitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[78]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option6_mailleonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[79]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option7_boolon</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[80]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option8_path /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[1]: TARGET:<t></t> OPERATOR:<o>section_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[2]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[3]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[4]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionA]
+[sectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[5]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionB]
+[sectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[6]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[7]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[8]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[9]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[10]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[11]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[12]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionA></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[13]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionB></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[14]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionA</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[15]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionB</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[16]: TARGET:<t></t> OPERATOR:<o>entry_key_value_pair_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[17]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[18]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[19]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[20]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[21]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[22]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[23]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[24]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[25]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option1_port = 10000
+option1_port = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[26]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option2_url = http://www.baidu.com
+option2_url = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[27]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option3_number = 1000M
+option3_number = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[28]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option4_address = 127.0.0.1
+option4_address = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[29]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option5_enum = shitou
+option5_enum = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[30]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option6_mail = leonut1993@gmail.com
+option6_mail = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[31]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option7_bool = on
+option7_bool = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[32]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option8_path =  /etc/test.conf
+option8_path =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[33]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option1_porttypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[34]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option2_urltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[35]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option3_numbertypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[36]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option4_addresstypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[37]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option5_enumtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[38]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option6_mailtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[39]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option7_booltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[40]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option8_pathtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[41]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option1_portsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[42]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option2_urlsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[43]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option3_numbersens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[44]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option4_addresssens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[45]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option5_enumsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[46]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option6_mailsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[47]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option7_boolsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[48]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option8_pathsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[49]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[50]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[51]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[52]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[53]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[54]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[55]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[56]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[57]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option1_port=10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[58]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option2_url=http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[59]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option3_number 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[60]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option4_address=127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[61]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option5_enum=shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[62]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option6_mail=leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[63]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option7_bool on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[64]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option8_path= /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[65]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option1_port  =  10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[66]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option2_url  =  http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[67]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option3_number  =  1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[68]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option4_address  =  127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[69]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option5_enum  =  shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[70]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option6_mail  =  leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[71]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option7_bool  =  on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[72]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option8_path  =   /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[73]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option1_port10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[74]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option2_urlhttp://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[75]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option3_number1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[76]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option4_address127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[77]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option5_enumshitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[78]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option6_mailleonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[79]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option7_boolon</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[80]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option8_path /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[1]: TARGET:<t></t> OPERATOR:<o>section_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[2]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[3]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[4]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionA]
+[sectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[5]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionB]
+[sectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[6]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[7]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[8]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[9]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[10]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[11]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[12]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionA></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[13]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionB></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[14]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionA</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[15]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionB</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[16]: TARGET:<t></t> OPERATOR:<o>entry_key_value_pair_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[17]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[18]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[19]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[20]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[21]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[22]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[23]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[24]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[25]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option1_port = 10000
+option1_port = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[26]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option2_url = http://www.baidu.com
+option2_url = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[27]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option3_number = 1000M
+option3_number = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[28]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option4_address = 127.0.0.1
+option4_address = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[29]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option5_enum = shitou
+option5_enum = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[30]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option6_mail = leonut1993@gmail.com
+option6_mail = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[31]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option7_bool = on
+option7_bool = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[32]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option8_path =  /etc/test.conf
+option8_path =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[33]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option1_porttypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[34]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option2_urltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[35]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option3_numbertypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[36]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option4_addresstypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[37]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option5_enumtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[38]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option6_mailtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[39]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option7_booltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[40]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option8_pathtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[41]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option1_portsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[42]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option2_urlsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[43]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option3_numbersens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[44]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option4_addresssens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[45]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option5_enumsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[46]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option6_mailsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[47]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option7_boolsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[48]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option8_pathsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[49]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[50]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[51]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[52]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[53]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[54]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[55]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[56]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[57]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option1_port 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[58]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option2_url=http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[59]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option3_number 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[60]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option4_address=127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[61]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option5_enum=shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[62]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option6_mail=leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[63]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option7_bool=on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[64]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option8_path= /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[65]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option1_port  =  10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[66]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option2_url  =  http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[67]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option3_number  =  1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[68]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option4_address  =  127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[69]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option5_enum  =  shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[70]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option6_mail  =  leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[71]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option7_bool  =  on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[72]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option8_path  =   /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[73]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option1_port10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[74]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option2_urlhttp://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[75]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option3_number1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[76]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option4_address127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[77]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option5_enumshitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[78]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option6_mailleonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[79]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option7_boolon</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[80]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option8_path /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[81]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_value_address_syntactic</o> RESULT:<r>[option4_address = -1.0.0.1,option4_address = 256.0.0.1,option4_address = o.0.0.1,option4_address = 127.0.0.,option4_address = 127,0.0.1,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[82]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_value_address_semantic</o> RESULT:<r>[option4_address = 255.255.255.255,option4_address = 0.0.0.255,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[83]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_value_enum_syntactic</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[84]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_value_mail_syntactic</o> RESULT:<r>[option6_mail = !@#$%^&*()@gmail.com,option6_mail = leonut1993#gmail.com,option6_mail = leonut1993@..,option6_mail = leonut1993@,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[85]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_value_number_syntactic</o> RESULT:<r>[option3_number = 1000.5M,option3_number = -1M,option3_number = 11M,option3_number = abcM,option3_number = 1000Mwrong,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[1]: TARGET:<t></t> OPERATOR:<o>section_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[2]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[3]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[4]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionA]
+[sectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[5]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionB]
+[sectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[6]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[7]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[8]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[9]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[10]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[11]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[12]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionA></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[13]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionB></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[14]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionA</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[15]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionB</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[16]: TARGET:<t></t> OPERATOR:<o>entry_key_value_pair_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[17]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[18]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[19]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[20]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[21]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[22]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[23]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[24]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[25]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option1_port = 10000
+option1_port = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[26]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option2_url = http://www.baidu.com
+option2_url = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[27]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option3_number = 1000M
+option3_number = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[28]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option4_address = 127.0.0.1
+option4_address = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[29]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option5_enum = shitou
+option5_enum = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[30]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option6_mail = leonut1993@gmail.com
+option6_mail = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[31]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option7_bool = on
+option7_bool = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[32]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option8_path =  /etc/test.conf
+option8_path =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[33]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option1_porttypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[34]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option2_urltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[35]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option3_numbertypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[36]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option4_addresstypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[37]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option5_enumtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[38]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option6_mailtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[39]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option7_booltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[40]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option8_pathtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[41]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option1_portsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[42]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option2_urlsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[43]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option3_numbersens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[44]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option4_addresssens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[45]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option5_enumsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[46]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option6_mailsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[47]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option7_boolsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[48]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option8_pathsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[49]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[50]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[51]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[52]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[53]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[54]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[55]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[56]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[57]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option1_port 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[58]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option2_url=http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[59]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option3_number 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[60]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option4_address 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[61]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option5_enum=shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[62]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option6_mail leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[63]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option7_bool=on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[64]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option8_path  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[65]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option1_port  =  10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[66]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option2_url  =  http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[67]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option3_number  =  1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[68]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option4_address  =  127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[69]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option5_enum  =  shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[70]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option6_mail  =  leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[71]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option7_bool  =  on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[72]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option8_path  =   /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[73]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option1_port10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[74]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option2_urlhttp://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[75]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option3_number1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[76]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option4_address127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[77]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option5_enumshitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[78]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option6_mailleonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[79]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option7_boolon</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[80]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option8_path /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[81]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_value_address_syntactic</o> RESULT:<r>[option4_address = -1.0.0.1,option4_address = 256.0.0.1,option4_address = o.0.0.1,option4_address = 127.0.0.,option4_address = 127,0.0.1,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[82]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_value_address_semantic</o> RESULT:<r>[option4_address = 255.255.255.255,option4_address = 0.0.0.255,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[83]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_value_enum_syntactic</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[84]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_value_mail_syntactic</o> RESULT:<r>[option6_mail = !@#$%^&*()@gmail.com,option6_mail = leonut1993#gmail.com,option6_mail = leonut1993@..,option6_mail = leonut1993@,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[85]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_value_number_syntactic</o> RESULT:<r>[option3_number = 1000.5M,option3_number = -1M,option3_number = 11M,option3_number = abcM,option3_number = 1000Mwrong,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[86]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_value_url_syntactic</o> RESULT:<r>[option2_url = unknown://www.baidu.com,option2_url = http::/www.baidu.com,option2_url = http://abcdefg,option2_url = http://,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[87]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_value_url_semantic</o> RESULT:<r>option2_url = www.google.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[88]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_value_boolean_syntactic</o> RESULT:<r>[,,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[89]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_value_port_syntactic</o> RESULT:<r>[option1_port = 10000.5,option1_port = -1,option1_port = 65536,option1_port = test,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[90]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_value_port_semantic</o> RESULT:<r>option1_port = 1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[91]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_value_path_syntactic</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[92]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_value_path_semantic</o> RESULT:<r>[option8_path =  /abc,option8_path =  /cba/abc,option8_path =  /spirittest,option8_path =  /spirittest/spirit,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[1]: TARGET:<t></t> OPERATOR:<o>section_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[2]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[3]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[4]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionA]
+[sectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[5]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionB]
+[sectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[6]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[7]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[8]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[9]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[10]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[11]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[12]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionA></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[13]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionB></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[14]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionA</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[15]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionB</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[16]: TARGET:<t></t> OPERATOR:<o>entry_key_value_pair_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[17]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[18]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[19]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[20]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[21]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[22]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[23]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[24]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[25]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option1_port = 10000
+option1_port = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[26]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option2_url = http://www.baidu.com
+option2_url = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[27]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option3_number = 1000M
+option3_number = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[28]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option4_address = 127.0.0.1
+option4_address = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[29]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option5_enum = shitou
+option5_enum = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[30]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option6_mail = leonut1993@gmail.com
+option6_mail = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[31]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option7_bool = on
+option7_bool = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[32]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option8_path =  /etc/test.conf
+option8_path =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[33]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option1_porttypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[34]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option2_urltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[35]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option3_numbertypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[36]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option4_addresstypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[37]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option5_enumtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[38]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option6_mailtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[39]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option7_booltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[40]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option8_pathtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[41]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option1_portsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[42]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option2_urlsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[43]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option3_numbersens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[44]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option4_addresssens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[45]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option5_enumsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[46]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option6_mailsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[47]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option7_boolsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[48]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option8_pathsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[49]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[50]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[51]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[52]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[53]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[54]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[55]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[56]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[57]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option1_port=10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[58]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option2_url http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[59]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option3_number 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[60]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option4_address 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[61]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option5_enum shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[62]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option6_mail=leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[63]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option7_bool=on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[64]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option8_path  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[65]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option1_port  =  10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[66]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option2_url  =  http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[67]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option3_number  =  1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[68]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option4_address  =  127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[69]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option5_enum  =  shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[70]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option6_mail  =  leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[71]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option7_bool  =  on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[72]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option8_path  =   /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[73]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option1_port10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[74]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option2_urlhttp://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[75]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option3_number1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[76]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option4_address127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[77]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option5_enumshitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[78]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option6_mailleonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[79]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option7_boolon</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[80]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option8_path /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[81]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_value_address_syntactic</o> RESULT:<r>[option4_address = -1.0.0.1,option4_address = 256.0.0.1,option4_address = o.0.0.1,option4_address = 127.0.0.,option4_address = 127,0.0.1,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[82]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_value_address_semantic</o> RESULT:<r>[option4_address = 255.255.255.255,option4_address = 0.0.0.255,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[83]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_value_enum_syntactic</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[84]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_value_mail_syntactic</o> RESULT:<r>[option6_mail = !@#$%^&*()@gmail.com,option6_mail = leonut1993#gmail.com,option6_mail = leonut1993@..,option6_mail = leonut1993@,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[85]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_value_number_syntactic</o> RESULT:<r>[option3_number = 1000.5M,option3_number = -1M,option3_number = 11M,option3_number = abcM,option3_number = 1000Mwrong,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[86]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_value_url_syntactic</o> RESULT:<r>[option2_url = unknown://www.baidu.com,option2_url = http::/www.baidu.com,option2_url = http://abcdefg,option2_url = http://,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[87]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_value_url_semantic</o> RESULT:<r>option2_url = www.google.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[88]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_value_boolean_syntactic</o> RESULT:<r>[,,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[89]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_value_port_syntactic</o> RESULT:<r>[option1_port = 10000.5,option1_port = -1,option1_port = 65536,option1_port = test,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[90]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_value_port_semantic</o> RESULT:<r>option1_port = 1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[91]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_value_path_syntactic</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[92]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_value_path_semantic</o> RESULT:<r>[option8_path =  /abc,option8_path =  /cba/abc,option8_path =  /spirittest,option8_path =  /spirittest/spirit,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[1]: TARGET:<t></t> OPERATOR:<o>section_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[2]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[3]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[4]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionA]
+[sectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[5]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionB]
+[sectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[6]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[7]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[8]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[9]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[10]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[11]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[12]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionA></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[13]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionB></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[14]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionA</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[15]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionB</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[16]: TARGET:<t></t> OPERATOR:<o>entry_key_value_pair_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[17]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[18]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[19]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[20]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[21]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[22]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[23]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[24]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[25]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option1_port = 10000
+option1_port = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[26]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option2_url = http://www.baidu.com
+option2_url = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[27]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option3_number = 1000M
+option3_number = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[28]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option4_address = 127.0.0.1
+option4_address = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[29]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option5_enum = shitou
+option5_enum = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[30]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option6_mail = leonut1993@gmail.com
+option6_mail = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[31]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option7_bool = on
+option7_bool = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[32]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option8_path =  /etc/test.conf
+option8_path =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[33]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option1_porttypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[34]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option2_urltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[35]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option3_numbertypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[36]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option4_addresstypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[37]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option5_enumtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[38]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option6_mailtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[39]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option7_booltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[40]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option8_pathtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[41]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option1_portsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[42]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option2_urlsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[43]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option3_numbersens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[44]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option4_addresssens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[45]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option5_enumsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[46]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option6_mailsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[47]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option7_boolsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[48]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option8_pathsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[49]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[50]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[51]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[52]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[53]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[54]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[55]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[56]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[57]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option1_port 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[58]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option2_url http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[59]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option3_number 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[60]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option4_address=127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[61]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option5_enum=shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[62]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option6_mail=leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[63]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option7_bool on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[64]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option8_path= /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[65]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option1_port  =  10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[66]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option2_url  =  http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[67]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option3_number  =  1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[68]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option4_address  =  127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[69]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option5_enum  =  shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[70]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option6_mail  =  leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[71]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option7_bool  =  on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[72]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option8_path  =   /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[73]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option1_port10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[74]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option2_urlhttp://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[75]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option3_number1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[76]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option4_address127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[77]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option5_enumshitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[78]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option6_mailleonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[79]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option7_boolon</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[80]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option8_path /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[81]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_value_address_syntactic</o> RESULT:<r>[option4_address = -1.0.0.1,option4_address = 256.0.0.1,option4_address = o.0.0.1,option4_address = 127.0.0.,option4_address = 127,0.0.1,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[82]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_value_address_semantic</o> RESULT:<r>[option4_address = 255.255.255.255,option4_address = 0.0.0.255,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[83]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_value_enum_syntactic</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[84]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_value_mail_syntactic</o> RESULT:<r>[option6_mail = !@#$%^&*()@gmail.com,option6_mail = leonut1993#gmail.com,option6_mail = leonut1993@..,option6_mail = leonut1993@,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[85]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_value_number_syntactic</o> RESULT:<r>[option1_port = 10000.5,option1_port = -1,option1_port = 10001,option1_port = abc,option1_port = 10000wrong,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[86]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_value_number_syntactic</o> RESULT:<r>[option3_number = 1000.5M,option3_number = -9999999999M,option3_number = 9999999999M,option3_number = abcM,option3_number = 1000Mwrong,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[87]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_value_url_syntactic</o> RESULT:<r>[option2_url = unknown://www.baidu.com,option2_url = http::/www.baidu.com,option2_url = http://abcdefg,option2_url = http://,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[88]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_value_url_semantic</o> RESULT:<r>option2_url = www.google.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[89]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_value_boolean_syntactic</o> RESULT:<r>[,,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[90]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_value_path_syntactic</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[91]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_value_path_semantic</o> RESULT:<r>[option8_path = /abc,option8_path = /cba/abc,option8_path = /spirittest,option8_path = /spirittest/spirit,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[1]: TARGET:<t></t> OPERATOR:<o>section_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[2]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[3]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[4]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionA]
+[sectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[5]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_replication</o> RESULT:<r>[sectionB]
+[sectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[6]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[7]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_typo</o> RESULT:<r>[tectionB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[8]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONA]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[9]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_sensitive</o> RESULT:<r>[SECTIONB]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[10]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[11]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_name_loss</o> RESULT:<r>[]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[12]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionA></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[13]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_wrong</o> RESULT:<r><sectionB></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[14]: TARGET:<t>[sectionA]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionA</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[15]: TARGET:<t>[sectionB]</t> OPERATOR:<o>section_operator_loss</o> RESULT:<r>sectionB</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[16]: TARGET:<t></t> OPERATOR:<o>entry_key_value_pair_order</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[17]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[18]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[19]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[20]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[21]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[22]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[23]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[24]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_loss</o> RESULT:<r></r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[25]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option1_port = 10000
+option1_port = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[26]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option2_url = http://www.baidu.com
+option2_url = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[27]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option3_number = 1000M
+option3_number = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[28]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option4_address = 127.0.0.1
+option4_address = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[29]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option5_enum = shitou
+option5_enum = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[30]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option6_mail = leonut1993@gmail.com
+option6_mail = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[31]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option7_bool = on
+option7_bool = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[32]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_value_pair_replication</o> RESULT:<r>option8_path =  /etc/test.conf
+option8_path =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[33]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option1_porttypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[34]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option2_urltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[35]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option3_numbertypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[36]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option4_addresstypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[37]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option5_enumtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[38]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option6_mailtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[39]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option7_booltypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[40]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_typo</o> RESULT:<r>option8_pathtypo failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[41]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option1_portsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[42]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option2_urlsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[43]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option3_numbersens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[44]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option4_addresssens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[45]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option5_enumsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[46]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option6_mailsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[47]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option7_boolsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[48]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_sensitive</o> RESULT:<r>option8_pathsens failed</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[49]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[50]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[51]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[52]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = 127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[53]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[54]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[55]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> = on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[56]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_key_loss</o> RESULT:<r> =  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[57]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option1_port 10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[58]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option2_url=http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[59]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option3_number=1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[60]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option4_address=127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[61]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option5_enum shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[62]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option6_mail leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[63]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option7_bool on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[64]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_wrong</o> RESULT:<r>option8_path  /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[65]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option1_port  =  10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[66]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option2_url  =  http://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[67]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option3_number  =  1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[68]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option4_address  =  127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[69]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option5_enum  =  shitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[70]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option6_mail  =  leonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[71]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option7_bool  =  on</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[72]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_space</o> RESULT:<r>option8_path  =   /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[73]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option1_port10000</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[74]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option2_urlhttp://www.baidu.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[75]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option3_number1000M</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[76]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option4_address127.0.0.1</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[77]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option5_enumshitou</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[78]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option6_mailleonut1993@gmail.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[79]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option7_boolon</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[80]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_operator_loss</o> RESULT:<r>option8_path /etc/test.conf</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[81]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_value_address_syntactic</o> RESULT:<r>[option4_address = -1.0.0.1,option4_address = 256.0.0.1,option4_address = o.0.0.1,option4_address = 127.0.0.,option4_address = 127,0.0.1,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[82]: TARGET:<t>option4_address = 127.0.0.1</t> OPERATOR:<o>entry_value_address_semantic</o> RESULT:<r>[option4_address = 255.255.255.255,option4_address = 0.0.0.255,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[83]: TARGET:<t>option5_enum = shitou</t> OPERATOR:<o>entry_value_enum_syntactic</o> RESULT:<r>[option5_enum = t,option5_enum = e,option5_enum = s,option5_enum = t,option5_enum = v,option5_enum = a,option5_enum = l,option5_enum = u,option5_enum = e,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[84]: TARGET:<t>option6_mail = leonut1993@gmail.com</t> OPERATOR:<o>entry_value_mail_syntactic</o> RESULT:<r>[option6_mail = !@#$%^&*()@gmail.com,option6_mail = leonut1993#gmail.com,option6_mail = leonut1993@..,option6_mail = leonut1993@,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[85]: TARGET:<t>option1_port = 10000</t> OPERATOR:<o>entry_value_number_syntactic</o> RESULT:<r>[option1_port = 10000.5,option1_port = -1,option1_port = 10001,option1_port = abc,option1_port = 10000wrong,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[86]: TARGET:<t>option3_number = 1000M</t> OPERATOR:<o>entry_value_number_syntactic</o> RESULT:<r>[option3_number = 1000.5M,option3_number = -9999999999M,option3_number = 9999999999M,option3_number = abcM,option3_number = 1000Mwrong,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[87]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_value_url_syntactic</o> RESULT:<r>[option2_url = unknown://www.baidu.com,option2_url = http::/www.baidu.com,option2_url = http://abcdefg,option2_url = http://,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[88]: TARGET:<t>option2_url = http://www.baidu.com</t> OPERATOR:<o>entry_value_url_semantic</o> RESULT:<r>option2_url = www.google.com</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[89]: TARGET:<t>option7_bool = on</t> OPERATOR:<o>entry_value_boolean_syntactic</o> RESULT:<r>[,,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[90]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_value_path_syntactic</o> RESULT:<r>[option8_path = \ /etc/test.conf,option8_path = /etc/test.conf,option8_path =  \etc/test.conf,option8_path =  /etc/,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 
+[91]: TARGET:<t>option8_path =  /etc/test.conf</t> OPERATOR:<o>entry_value_path_semantic</o> RESULT:<r>[option8_path = /abc,option8_path = /cba/abc,option8_path = /spirittest,option8_path = /spirittest/spirit,]</r> CONFFILE:<c>1</c> LOGFILE:<l>2</l> 

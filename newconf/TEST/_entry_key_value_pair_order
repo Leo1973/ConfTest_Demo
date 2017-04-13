@@ -1,8 +1,8 @@
 [sectionA]
 #NUMB $int [0,10000] none
-option1_port = 10000
-#URL
 option2_url = http://www.baidu.com
+#URL
+option1_port = 10000
 #NUMB int none M
 option3_number = 1000M
 [sectionB]

@@ -13,6 +13,6 @@ option5_enum = shitou
 #EMAIL
 option6_mail = leonut1993@gmail.com
 #BOOL $of
-option7_bool = on
+ = on
 #PATH
 option8_path =  /etc/test.conf

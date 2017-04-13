@@ -1,6 +1,7 @@
 import utils
 import spirit_method
 import mylog
+import mutator
 name = ""
 conf_path = ""
 conf_origin = ""
@@ -230,7 +231,7 @@ def do20(service):#address_syn
         if entry.type != "ADDRESS" :
             continue
         else:
-            wrong_address = mutator.gensyn(entry.value, entry.type) #generate a list of wrong addresses
+            wrong_address = mutator.gensyn(entry.value, entry.type, entry.constraint) #generate a list of wrong addresses
             '''
             wrong_address = []
             wrong_address.append("255.255.255.256")
@@ -273,7 +274,8 @@ def do24(service):#enum_syn
         if entry.type != "ENUM" :
             continue
         else:
-            wrong_value = "WRONGVALUE"
+            
+            wrong_value = mutator.gensyn(entry.value, entry.type, entry.constraint) #generate a list of wrong enum
             mutation = spirit_method.instr_replace(entry.value, wrong_value,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
@@ -294,7 +296,8 @@ def do26(service):#mail_syn
         if entry.type != "EMAIL" :
             continue
         else:
-            wrong_mail = "testmail@test"
+            
+            wrong_mail = mutator.gensyn(entry.value, entry.type, entry.constraint) #generate a list of wrong email
             mutation = spirit_method.instr_replace(entry.value, wrong_mail,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
@@ -311,7 +314,7 @@ def do28(service):#number_syn
         if entry.type != "NUMB" :
             continue
         else:
-            wrong_num = "thisisatest"
+            wrong_num = mutator.gensyn(entry.value, entry.type, entry.constraint)
             mutation = spirit_method.instr_replace(entry.value, wrong_num,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
@@ -320,6 +323,7 @@ def do28(service):#number_syn
         mylog.log(entry.origin, service, mutation, "1","2")
 def do29(service):#number_sem
     print service
+"""
     for entry in conf_entry_info:
         if entry.type != "NUMB" :
             continue
@@ -352,7 +356,7 @@ def do29(service):#number_sem
             else:
                 sem_value.append(float_value)
                 sem_value.append(overflow_value)
-            """
+            ""
             if num_type == "int":
                 float_value = str(int(entry.value)+0.5)
                 overflow_value = "99999999999999999"
@@ -366,7 +370,7 @@ def do29(service):#number_sem
                 sem_value.append(min_value)
                 sem_value.append(max_value)
             if num_unit != "none":
-                print "#TODO" """
+                print "#TODO" ""
             mutation = spirit_method.instr_replace(entry.value, sem_value,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
@@ -386,6 +390,7 @@ def do29(service):#number_sem
                                                    conf_origin)
             spirit_method.save(new_conf, service, entry.key, directory)
         mylog.log(entry.origin, service, mutation, "1","2")
+"""
 
 def do30(service):#url_syn
     print service
@@ -393,7 +398,7 @@ def do30(service):#url_syn
         if entry.type != "URL" :
             continue
         else:
-            wrong_url = "thisisawrongurl"
+            wrong_url = mutator.gensyn(entry.value, entry.type, entry.constraint)
             mutation = spirit_method.instr_replace(entry.value, wrong_url,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
@@ -419,7 +424,7 @@ def do32(service):#boolean_syn
         if entry.type != "BOOL" :
             continue
         else:
-            wrong_bool = "wrongbool"
+            wrong_bool = mutator.gensyn(entry.value, entry.type, entry.constraint)
             mutation = spirit_method.instr_replace(entry.value, wrong_bool,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
@@ -429,7 +434,7 @@ def do32(service):#boolean_syn
 
 def do33(service):#boolean_sem
     print service
-    for entry in conf_entry_info:
+"""    for entry in conf_entry_info:
         if entry.type != "BOOL" :
             continue
         else:
@@ -445,17 +450,15 @@ def do33(service):#boolean_sem
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                    conf_origin)
             spirit_method.save(new_conf, service, entry.key, directory)
-        mylog.log(entry.origin, service, mutation, "1","2")
+        mylog.log(entry.origin, service, mutation, "1","2")"""
 def do34(service):#port_syn
     print service
     for entry in conf_entry_info:
         if entry.type != "PORT" :
             continue
         else:
-            wrong_port = []
-            wrong_port.append("-1")
-            wrong_port.append("655366")
-            wrong_port.append("wrongport")
+            
+            wrong_port = mutator.gensyn(entry.value, entry.type, entry.constraint)
             mutation = spirit_method.instr_replace(entry.value, wrong_port,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,
@@ -482,10 +485,9 @@ def do36(service):#path_syn
         if entry.type != "PATH" :
             continue
         else:
-            value = spirit_method.trans_path(entry.value, entry.constraint)
-            syn_value = []
-            syn_value.append('\\' + value[1::])
-            syn_value = spirit_method.trans_path(syn_value, entry.constraint)
+
+            syn_value = mutator.gensyn(entry.value, entry.type, entry.constraint)
+     
             mutation = spirit_method.instr_replace(entry.value, syn_value,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,

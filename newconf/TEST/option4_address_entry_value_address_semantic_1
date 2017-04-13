@@ -7,7 +7,7 @@ option2_url = http://www.baidu.com
 option3_number = 1000M
 [sectionB]
 #ADDRESS
-option4_address = 127.0.0.1
+option4_address = 0.0.0.255
 #ENUM $shitou jiandao
 option5_enum = shitou
 #EMAIL

@@ -1,4 +1,4 @@
-[sectionA]
+[tectionA]
 #NUMB $int [0,10000] none
 option1_port = 10000
 #URL

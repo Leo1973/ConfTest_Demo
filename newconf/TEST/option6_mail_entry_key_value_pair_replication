@@ -12,6 +12,7 @@ option4_address = 127.0.0.1
 option5_enum = shitou
 #EMAIL
 option6_mail = leonut1993@gmail.com
+option6_mail = leonut1993@gmail.com
 #BOOL $of
 option7_bool = on
 #PATH

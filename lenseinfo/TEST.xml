@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lenseinfo>
     <Entrys>
-        <Entry1 key="option1_port" value = "10000" operator = " = " constraint = "none" type = "PORT" origin = "option1_port = 10000"></Entry1>
+        <Entry1 key="option1_port" value = "10000" operator = " = " constraint = "int [0,10000] none" type = "NUMB" origin = "option1_port = 10000"></Entry1>
         <Entry2 key="option2_url" value = "http://www.baidu.com" operator = " = " constraint = "none" type = "URL" origin = "option2_url = http://www.baidu.com"></Entry2>
-        <Entry3 key="option3_number" value = "1000M" operator = " = " constraint = "int [0,10] M" type = "NUMB" origin = "option3_number = 1000M"></Entry3>
+        <Entry3 key="option3_number" value = "1000M" operator = " = " constraint = "int none M" type = "NUMB" origin = "option3_number = 1000M"></Entry3>
         <Entry4 key="option4_address" value = "127.0.0.1" operator = " = " constraint = "none" type = "ADDRESS" origin = "option4_address = 127.0.0.1"></Entry4>
-        <Entry5 key="option5_enum" value = "shitou" operator = " = " constraint = "none" type = "ENUM" origin = "option5_enum = shitou"></Entry5>
+        <Entry5 key="option5_enum" value = "shitou" operator = " = " constraint = "shitou jiandao" type = "ENUM" origin = "option5_enum = shitou"></Entry5>
         <Entry6 key="option6_mail" value = "leonut1993@gmail.com" operator = " = " constraint = "none" type = "EMAIL" origin = "option6_mail = leonut1993@gmail.com"></Entry6>
         <Entry7 key="option7_bool" value = "on" operator = " = " constraint = "of" type = "BOOL" origin = "option7_bool = on"></Entry7>
-        <Entry8 key="option8_path" value = "/etc/test.conf" operator = " = " constraint = "none" type = "PATH" origin = "option8_path =  /etc/test.conf"></Entry8>
+        <Entry8 key="option8_path" value = " /etc/test.conf" operator = " = " constraint = "none" type = "PATH" origin = "option8_path =  /etc/test.conf"></Entry8>
+
     </Entrys>
     <Sections>
         <Section1 name = "sectionA" operator = "[*]" origin = "[sectionA]"></Section1>

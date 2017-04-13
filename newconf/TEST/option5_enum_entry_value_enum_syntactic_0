@@ -9,7 +9,7 @@ option3_number = 1000M
 #ADDRESS
 option4_address = 127.0.0.1
 #ENUM $shitou jiandao
-option5_enum = shitou
+option5_enum = t
 #EMAIL
 option6_mail = leonut1993@gmail.com
 #BOOL $of

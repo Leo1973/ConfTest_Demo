@@ -1,11 +1,11 @@
-[sectionA]
+[sectionB]
 #NUMB $int [0,10000] none
 option1_port = 10000
 #URL
 option2_url = http://www.baidu.com
 #NUMB int none M
 option3_number = 1000M
-[sectionB]
+[sectionA]
 #ADDRESS
 option4_address = 127.0.0.1
 #ENUM $shitou jiandao
