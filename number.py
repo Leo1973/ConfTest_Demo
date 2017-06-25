@@ -7,6 +7,8 @@ def assemble(Seq):
 
 def init(Value, Constraint):
     ls = Constraint.split()
+    #print Value
+    #print Constraint
     typ = ls[0]
     rang = ls[1]
     unit = ls[2]

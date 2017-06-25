@@ -1,0 +1,17 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: active (running) since Thu 2017-04-20 17:51:58 CST; 9s ago
+ Main PID: 32094 (httpd)
+   Status: "Total requests: 0; Current requests/sec: 0; Current traffic:   0 B/sec"
+   CGroup: /system.slice/httpd.service
+           ├─32094 /usr/sbin/httpd -DFOREGROUND
+           ├─32095 /usr/libexec/nss_pcache 17924146 off /etc/httpd/alias
+           ├─32096 /usr/sbin/httpd -DFOREGROUND
+           ├─32097 /usr/sbin/httpd -DFOREGROUND
+           ├─32098 /usr/sbin/httpd -DFOREGROUND
+           ├─32099 /usr/sbin/httpd -DFOREGROUND
+           ├─32100 /usr/sbin/httpd -DFOREGROUND
+           └─32101 /usr/sbin/httpd -DFOREGROUND
+
+Apr 20 17:51:58 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 17:51:58 localhost.localdomain systemd[1]: Started The Apache HTTP Server.

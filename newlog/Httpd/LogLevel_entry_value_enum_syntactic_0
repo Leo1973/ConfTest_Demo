@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 18:36:49 CST; 9s ago
+  Process: 37744 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 37743 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 37743 (code=exited, status=1/FAILURE)
+
+Apr 20 18:36:49 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 18:36:49 localhost.localdomain httpd[37743]: AH00526: Syntax error on line 51 of /etc/httpd/conf/httpd.conf:
+Apr 20 18:36:49 localhost.localdomain httpd[37743]: Log level keyword must be one of emerg/alert/crit/error/warn/notice/info/debug/trace1/.../trace8
+Apr 20 18:36:49 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Apr 20 18:36:49 localhost.localdomain kill[37744]: kill: cannot find process ""
+Apr 20 18:36:49 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 18:36:49 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 18:36:49 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

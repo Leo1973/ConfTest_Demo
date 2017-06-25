@@ -1,0 +1,12 @@
+170420 20:01:18 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170420 20:01:18 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+Unknown suffix 't' used for variable 'innodb-flush-log-at-trx-commit' (value 'true')
+170420 20:01:18 [ERROR] /usr/libexec/mysqld: Error while setting value 'true' to 'innodb-flush-log-at-trx-commit'
+170420 20:01:18 [ERROR] Parsing options for plugin 'InnoDB' failed.
+170420 20:01:18 [Note] Plugin 'FEEDBACK' is disabled.
+170420 20:01:18 [ERROR] /usr/libexec/mysqld: unknown variable 'innodb_data_home_dir=/var/lib/mysql'
+170420 20:01:18 [ERROR] Aborting
+
+170420 20:01:18 [Note] /usr/libexec/mysqld: Shutdown complete
+
+170420 20:01:18 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

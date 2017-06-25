@@ -1,0 +1,6 @@
+170420 19:55:14 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Unknown suffix 'a' used for variable 'query_cache_size' (value 'abcM')
+170420 19:55:14 [ERROR] /usr/libexec/mysqld: Error while setting value 'abcM' to 'query_cache_size'
+170420 19:55:14 [ERROR] Aborting
+
+170420 19:55:14 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

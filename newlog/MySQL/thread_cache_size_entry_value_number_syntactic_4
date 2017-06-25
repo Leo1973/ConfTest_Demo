@@ -1,0 +1,6 @@
+170420 19:54:30 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Unknown suffix 'w' used for variable 'thread_cache_size' (value '8wrong')
+170420 19:54:30 [ERROR] /usr/libexec/mysqld: Error while setting value '8wrong' to 'thread_cache_size'
+170420 19:54:30 [ERROR] Aborting
+
+170420 19:54:30 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

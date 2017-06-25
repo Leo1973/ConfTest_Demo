@@ -1,0 +1,62 @@
+170420 19:59:38 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170420 19:59:38 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+170420 19:59:38 InnoDB: The InnoDB memory heap is disabled
+170420 19:59:38 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+170420 19:59:38 InnoDB: Compressed tables use zlib 1.2.7
+170420 19:59:38 InnoDB: Using Linux native AIO
+170420 19:59:38 InnoDB: Initializing buffer pool, size = 384.0M
+170420 19:59:38 InnoDB: Completed initialization of buffer pool
+170420 19:59:38 InnoDB: Unable to allocate memory of size 10485759998952056.
+170420 19:59:38  InnoDB: Assertion failure in thread 139766868076608 in file mem0mem.c line 361
+InnoDB: We intentionally generate a memory trap.
+InnoDB: Submit a detailed bug report to http://bugs.mysql.com.
+InnoDB: If you get repeated assertion failures or crashes, even
+InnoDB: immediately after the mysqld startup, there may be
+InnoDB: corruption in the InnoDB tablespace. Please refer to
+InnoDB: http://dev.mysql.com/doc/refman/5.5/en/forcing-innodb-recovery.html
+InnoDB: about forcing recovery.
+170420 19:59:38 [ERROR] mysqld got signal 6 ;
+This could be because you hit a bug. It is also possible that this binary
+or one of the libraries it was linked against is corrupt, improperly built,
+or misconfigured. This error can also be caused by malfunctioning hardware.
+
+To report this bug, see http://kb.askmonty.org/en/reporting-bugs
+
+We will try our best to scrape up some info that will hopefully help
+diagnose the problem, but since we have already crashed, 
+something is definitely wrong and this may fail.
+
+Server version: 5.5.41-MariaDB-log
+key_buffer_size=402653184
+read_buffer_size=2097152
+max_used_connections=0
+max_threads=153
+thread_count=0
+It is possible that mysqld could use up to 
+key_buffer_size + (read_buffer_size + sort_buffer_size)*max_threads = 1022616 K  bytes of memory
+Hope that's ok; if not, decrease some variables in the equation.
+
+Thread pointer: 0x0x0
+Attempting backtrace. You can use the following information to find out
+where mysqld died. If you see no messages after this, something went
+terribly wrong...
+stack_bottom = 0x0 thread_stack 0x48000
+/usr/libexec/mysqld(my_print_stacktrace+0x3d)[0x7f1e0311f79d]
+/usr/libexec/mysqld(handle_fatal_signal+0x515)[0x7f1e02d35475]
+/lib64/libpthread.so.0(+0xf130)[0x7f1e02465130]
+/lib64/libc.so.6(gsignal+0x37)[0x7f1e00c1a5d7]
+/lib64/libc.so.6(abort+0x148)[0x7f1e00c1bcc8]
+/usr/libexec/mysqld(+0x71d1cf)[0x7f1e02fb31cf]
+/usr/libexec/mysqld(+0x70c926)[0x7f1e02fa2926]
+/usr/libexec/mysqld(+0x6412e4)[0x7f1e02ed72e4]
+/usr/libexec/mysqld(+0x5fc46c)[0x7f1e02e9246c]
+/usr/libexec/mysqld(_Z24ha_initialize_handlertonP13st_plugin_int+0x48)[0x7f1e02d374f8]
+/usr/libexec/mysqld(+0x37c465)[0x7f1e02c12465]
+/usr/libexec/mysqld(_Z11plugin_initPiPPci+0x559)[0x7f1e02c181e9]
+/usr/libexec/mysqld(+0x2ee5fa)[0x7f1e02b845fa]
+/usr/libexec/mysqld(_Z11mysqld_mainiPPc+0x546)[0x7f1e02b876e6]
+/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f1e00c06af5]
+/usr/libexec/mysqld(+0x2e82dd)[0x7f1e02b7e2dd]
+The manual page at http://dev.mysql.com/doc/mysql/en/crashing.html contains
+information that should help you find out what is causing the crash.
+170420 19:59:39 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

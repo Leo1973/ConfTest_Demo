@@ -1,0 +1,7 @@
+170420 19:50:39 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Unknown suffix 'a' used for variable 'sort_buffer_size' (value 'abcM')
+170420 19:50:39 [Warning] option 'sort_buffer_size': unsigned value 0 adjusted to 1024
+170420 19:50:39 [ERROR] /usr/libexec/mysqld: Error while setting value 'abcM' to 'sort_buffer_size'
+170420 19:50:39 [ERROR] Aborting
+
+170420 19:50:39 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

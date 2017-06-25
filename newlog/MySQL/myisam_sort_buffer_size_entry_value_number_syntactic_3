@@ -1,0 +1,57 @@
+170420 19:53:24 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170420 19:53:24 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+Unknown suffix 'a' used for variable 'myisam-sort-buffer-size' (value 'abcM')
+170420 19:53:24 [Warning] option 'myisam-sort-buffer-size': unsigned value 0 adjusted to 4096
+170420 19:53:24 [ERROR] /usr/libexec/mysqld: Error while setting value 'abcM' to 'myisam-sort-buffer-size'
+170420 19:53:24 [ERROR] Parsing options for plugin 'MyISAM' failed.
+170420 19:53:24 InnoDB: The InnoDB memory heap is disabled
+170420 19:53:24 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+170420 19:53:24 InnoDB: Compressed tables use zlib 1.2.7
+170420 19:53:24 InnoDB: Using Linux native AIO
+170420 19:53:24 InnoDB: Initializing buffer pool, size = 384.0M
+170420 19:53:24 InnoDB: Completed initialization of buffer pool
+170420 19:53:24 InnoDB: highest supported file format is Barracuda.
+170420 19:53:24  InnoDB: Waiting for the background threads to start
+170420 19:53:25 Percona XtraDB (http://www.percona.com) 5.5.40-MariaDB-36.1 started; log sequence number 1597945
+170420 19:53:25 [Note] Plugin 'FEEDBACK' is disabled.
+170420 19:53:25 [ERROR] mysqld got signal 11 ;
+This could be because you hit a bug. It is also possible that this binary
+or one of the libraries it was linked against is corrupt, improperly built,
+or misconfigured. This error can also be caused by malfunctioning hardware.
+
+To report this bug, see http://kb.askmonty.org/en/reporting-bugs
+
+We will try our best to scrape up some info that will hopefully help
+diagnose the problem, but since we have already crashed, 
+something is definitely wrong and this may fail.
+
+Server version: 5.5.41-MariaDB-log
+key_buffer_size=402653184
+read_buffer_size=2097152
+max_used_connections=0
+max_threads=153
+thread_count=0
+It is possible that mysqld could use up to 
+key_buffer_size + (read_buffer_size + sort_buffer_size)*max_threads = 1022616 K  bytes of memory
+Hope that's ok; if not, decrease some variables in the equation.
+
+Thread pointer: 0x0x0
+Attempting backtrace. You can use the following information to find out
+where mysqld died. If you see no messages after this, something went
+terribly wrong...
+stack_bottom = 0x0 thread_stack 0x48000
+/usr/libexec/mysqld(my_print_stacktrace+0x3d)[0x7f1e2139d79d]
+/usr/libexec/mysqld(handle_fatal_signal+0x515)[0x7f1e20fb3475]
+/lib64/libpthread.so.0(+0xf130)[0x7f1e206e3130]
+/usr/libexec/mysqld(_Z18plugin_thdvar_initP3THD+0xfc)[0x7f1e20e93e2c]
+/usr/libexec/mysqld(_ZN3THD4initEv+0x9a)[0x7f1e20e55c8a]
+/usr/libexec/mysqld(_ZN3THDC1Ev+0x923)[0x7f1e20e58c43]
+/usr/libexec/mysqld(+0x2ce554)[0x7f1e20de2554]
+/usr/libexec/mysqld(_Z11plugin_initPiPPci+0x854)[0x7f1e20e964e4]
+/usr/libexec/mysqld(+0x2ee5fa)[0x7f1e20e025fa]
+/usr/libexec/mysqld(_Z11mysqld_mainiPPc+0x546)[0x7f1e20e056e6]
+/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f1e1ee84af5]
+/usr/libexec/mysqld(+0x2e82dd)[0x7f1e20dfc2dd]
+The manual page at http://dev.mysql.com/doc/mysql/en/crashing.html contains
+information that should help you find out what is causing the crash.
+170420 19:53:25 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

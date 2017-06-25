@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 19:01:07 CST; 9s ago
+  Process: 40759 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 40758 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 40758 (code=exited, status=1/FAILURE)
+
+Apr 20 19:01:07 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 19:01:07 localhost.localdomain httpd[40758]: (21)Is a directory: AH00091: httpd: could not open error log file /spirittest/spirit.
+Apr 20 19:01:07 localhost.localdomain httpd[40758]: AH00015: Unable to open logs
+Apr 20 19:01:07 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Apr 20 19:01:07 localhost.localdomain kill[40759]: kill: cannot find process ""
+Apr 20 19:01:07 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 19:01:07 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 19:01:07 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

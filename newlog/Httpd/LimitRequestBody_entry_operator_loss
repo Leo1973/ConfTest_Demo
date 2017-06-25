@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 18:33:37 CST; 9s ago
+  Process: 37521 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 37520 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 37520 (code=exited, status=1/FAILURE)
+
+Apr 20 18:33:37 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 18:33:37 localhost.localdomain httpd[37520]: AH00526: Syntax error on line 108 of /etc/httpd/conf/httpd.conf:
+Apr 20 18:33:37 localhost.localdomain httpd[37520]: Invalid command 'LimitRequestBody0', perhaps misspelled or defined by a module not included in the server configuration
+Apr 20 18:33:37 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Apr 20 18:33:37 localhost.localdomain kill[37521]: kill: cannot find process ""
+Apr 20 18:33:37 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 18:33:37 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 18:33:37 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

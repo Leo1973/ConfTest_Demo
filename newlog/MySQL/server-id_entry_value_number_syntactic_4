@@ -1,0 +1,7 @@
+170420 19:57:15 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170420 19:57:15 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+Unknown suffix 'w' used for variable 'server_id' (value '1wrong')
+170420 19:57:15 [ERROR] /usr/libexec/mysqld: Error while setting value '1wrong' to 'server_id'
+170420 19:57:15 [ERROR] Aborting
+
+170420 19:57:15 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

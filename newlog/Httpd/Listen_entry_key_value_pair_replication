@@ -1,0 +1,16 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 17:46:05 CST; 9s ago
+  Process: 31388 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 31387 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 31387 (code=exited, status=1/FAILURE)
+
+Apr 20 17:46:05 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 17:46:05 localhost.localdomain httpd[31387]: (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+Apr 20 17:46:05 localhost.localdomain httpd[31387]: no listening sockets available, shutting down
+Apr 20 17:46:05 localhost.localdomain httpd[31387]: AH00015: Unable to open logs
+Apr 20 17:46:05 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Apr 20 17:46:05 localhost.localdomain kill[31388]: kill: cannot find process ""
+Apr 20 17:46:05 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 17:46:05 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 17:46:05 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

@@ -1,0 +1,14 @@
+postgresql.service - PostgreSQL database server
+   Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 21:18:18 CST; 8s ago
+  Process: 78514 ExecStart=/usr/bin/pg_ctl start -D ${PGDATA} -s -o -p ${PGPORT} -w -t 300 (code=exited, status=1/FAILURE)
+  Process: 78509 ExecStartPre=/usr/bin/postgresql-check-db-dir ${PGDATA} (code=exited, status=0/SUCCESS)
+
+Apr 20 21:18:17 localhost.localdomain systemd[1]: Starting PostgreSQL database server...
+Apr 20 21:18:17 localhost.localdomain pg_ctl[78514]: LOG:  invalid value for parameter "superuser_reserved_connections": "3.5"
+Apr 20 21:18:17 localhost.localdomain pg_ctl[78514]: FATAL:  configuration file "/var/lib/pgsql/data/postgresql.conf" contains errors
+Apr 20 21:18:18 localhost.localdomain pg_ctl[78514]: pg_ctl: could not start server
+Apr 20 21:18:18 localhost.localdomain pg_ctl[78514]: Examine the log output.
+Apr 20 21:18:18 localhost.localdomain systemd[1]: postgresql.service: control process exited, code=exited status=1
+Apr 20 21:18:18 localhost.localdomain systemd[1]: Failed to start PostgreSQL database server.
+Apr 20 21:18:18 localhost.localdomain systemd[1]: Unit postgresql.service entered failed state.

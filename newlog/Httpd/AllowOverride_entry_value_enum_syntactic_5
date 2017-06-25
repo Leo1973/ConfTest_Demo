@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 18:35:45 CST; 9s ago
+  Process: 37671 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 37670 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 37670 (code=exited, status=1/FAILURE)
+
+Apr 20 18:35:45 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 18:35:45 localhost.localdomain httpd[37670]: AH00526: Syntax error on line 20 of /etc/httpd/conf/httpd.conf:
+Apr 20 18:35:45 localhost.localdomain httpd[37670]: Illegal override option a
+Apr 20 18:35:45 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Apr 20 18:35:45 localhost.localdomain kill[37671]: kill: cannot find process ""
+Apr 20 18:35:45 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 18:35:45 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 18:35:45 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

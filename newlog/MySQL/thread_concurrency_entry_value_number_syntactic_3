@@ -1,0 +1,7 @@
+170420 19:56:09 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Unknown suffix 'a' used for variable 'thread_concurrency' (value 'abc')
+170420 19:56:09 [Warning] option 'thread_concurrency': unsigned value 0 adjusted to 1
+170420 19:56:09 [ERROR] /usr/libexec/mysqld: Error while setting value 'abc' to 'thread_concurrency'
+170420 19:56:09 [ERROR] Aborting
+
+170420 19:56:09 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

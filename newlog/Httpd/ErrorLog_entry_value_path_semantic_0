@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 19:00:19 CST; 9s ago
+  Process: 40678 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 40677 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 40677 (code=exited, status=1/FAILURE)
+
+Apr 20 19:00:19 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 19:00:19 localhost.localdomain httpd[40677]: (21)Is a directory: AH00091: httpd: could not open error log file /abc.
+Apr 20 19:00:19 localhost.localdomain httpd[40677]: AH00015: Unable to open logs
+Apr 20 19:00:19 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Apr 20 19:00:19 localhost.localdomain kill[40678]: kill: cannot find process ""
+Apr 20 19:00:19 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 19:00:19 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 19:00:19 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

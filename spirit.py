@@ -126,6 +126,8 @@ def do10(service):#key_value_pair_loss
         mutation = ""
         new_conf = spirit_method.instr_replace(entry.origin, mutation,
                                                conf_origin)
+        #print "processing entry: " + entry.key
+        #print mutation
         spirit_method.save(new_conf, service, entry.key, directory)
         mylog.log(entry.origin, service, mutation, "1","2")
 
@@ -485,9 +487,12 @@ def do36(service):#path_syn
         if entry.type != "PATH" :
             continue
         else:
+            value = spirit_method.trans_path(entry.value, entry.constraint)
 
-            syn_value = mutator.gensyn(entry.value, entry.type, entry.constraint)
-     
+            syn_value = mutator.gensyn(value, entry.type, entry.constraint)
+    
+            syn_value = spirit_method.trans_path(syn_value, entry.constraint)
+
             mutation = spirit_method.instr_replace(entry.value, syn_value,
                                                    entry.origin)
             new_conf = spirit_method.instr_replace(entry.origin, mutation,

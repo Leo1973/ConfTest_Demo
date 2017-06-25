@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror, langpacks
+Cannot open logfile /abc
+Loading mirror speeds from cached hostfile
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os&infra=stock error was
+14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=extras&infra=stock error was
+14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=updates&infra=stock error was
+14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
+ * base: mirrors.tuna.tsinghua.edu.cn
+ * extras: mirrors.tuna.tsinghua.edu.cn
+ * updates: mirrors.tuna.tsinghua.edu.cn
+============================== N/S matched: squid ==============================
+squid.x86_64 : The Squid proxy caching server
+squid-migration-script.x86_64 : Migration script for squid caching proxy
+squid-sysvinit.x86_64 : SysV initscript for squid caching proxy
+libecap.x86_64 : Squid interface for embedded adaptation modules
+libecap.i686 : Squid interface for embedded adaptation modules
+
+  Name and summary matches only, use "search all" for everything.

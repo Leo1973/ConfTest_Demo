@@ -1,0 +1,6 @@
+170420 19:46:47 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170420 19:46:47 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+170420 19:46:47 [ERROR] /usr/libexec/mysqld: Error while setting value 'l' to 'binlog_format'
+170420 19:46:47 [ERROR] Aborting
+
+170420 19:46:47 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

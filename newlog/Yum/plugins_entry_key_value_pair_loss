@@ -1,0 +1,8 @@
+============================== N/S matched: squid ==============================
+squid.x86_64 : The Squid proxy caching server
+squid-migration-script.x86_64 : Migration script for squid caching proxy
+squid-sysvinit.x86_64 : SysV initscript for squid caching proxy
+libecap.x86_64 : Squid interface for embedded adaptation modules
+libecap.i686 : Squid interface for embedded adaptation modules
+
+  Name and summary matches only, use "search all" for everything.

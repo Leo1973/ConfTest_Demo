@@ -1,0 +1,7 @@
+170420 19:49:55 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Unknown suffix 'w' used for variable 'table_open_cache' (value '512wrong')
+170420 19:49:55 [Warning] option 'table_open_cache': unsigned value 0 adjusted to 1
+170420 19:49:55 [ERROR] /usr/libexec/mysqld: Error while setting value '512wrong' to 'table_open_cache'
+170420 19:49:55 [ERROR] Aborting
+
+170420 19:49:55 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

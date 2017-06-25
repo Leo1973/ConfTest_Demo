@@ -1,0 +1,14 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 18:57:07 CST; 9s ago
+  Process: 39865 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 39864 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 39864 (code=exited, status=1/FAILURE)
+
+Apr 20 18:57:07 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 18:57:07 localhost.localdomain httpd[39864]: httpd: Syntax error on line 7 of /etc/httpd/conf/httpd.conf: Could not open config directory /abc/conf.modules.d: No such file or directory
+Apr 20 18:57:07 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Apr 20 18:57:07 localhost.localdomain kill[39865]: kill: cannot find process ""
+Apr 20 18:57:07 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 18:57:07 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 18:57:07 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

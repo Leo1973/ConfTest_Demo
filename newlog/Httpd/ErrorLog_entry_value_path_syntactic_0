@@ -1,0 +1,15 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 18:53:55 CST; 9s ago
+  Process: 39215 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 39214 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 39214 (code=exited, status=1/FAILURE)
+
+Apr 20 18:53:55 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 18:53:55 localhost.localdomain httpd[39214]: (2)No such file or directory: AH02291: Cannot access directory '/etc/httpd/\\logs/' for main error log
+Apr 20 18:53:55 localhost.localdomain httpd[39214]: AH00014: Configuration check failed
+Apr 20 18:53:55 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Apr 20 18:53:55 localhost.localdomain kill[39215]: kill: cannot find process ""
+Apr 20 18:53:55 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 18:53:55 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 18:53:55 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

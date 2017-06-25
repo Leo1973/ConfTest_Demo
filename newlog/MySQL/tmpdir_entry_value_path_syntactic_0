@@ -1,0 +1,17 @@
+170420 20:03:08 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170420 20:03:08 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+170420 20:03:08 InnoDB: The InnoDB memory heap is disabled
+170420 20:03:08 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+170420 20:03:08 InnoDB: Compressed tables use zlib 1.2.7
+170420 20:03:08 InnoDB: Using Linux native AIO
+170420 20:03:08 [ERROR] mysqld: Can't create/write to file '	mp/ibjUEQ0N' (Errcode: 2)
+170420 20:03:08  InnoDB: Error: unable to create temporary file; errno: 2
+170420 20:03:08 [ERROR] Plugin 'InnoDB' init function returned error.
+170420 20:03:08 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+170420 20:03:08 [Note] Plugin 'FEEDBACK' is disabled.
+170420 20:03:08 [ERROR] Unknown/unsupported storage engine: InnoDB
+170420 20:03:08 [ERROR] Aborting
+
+170420 20:03:08 [Note] /usr/libexec/mysqld: Shutdown complete
+
+170420 20:03:08 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

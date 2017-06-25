@@ -1,0 +1,16 @@
+170420 20:04:14 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170420 20:04:14 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+170420 20:04:14 InnoDB: The InnoDB memory heap is disabled
+170420 20:04:14 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+170420 20:04:14 InnoDB: Compressed tables use zlib 1.2.7
+170420 20:04:14 InnoDB: Using Linux native AIO
+170420 20:04:14 InnoDB: Initializing buffer pool, size = 384.0M
+170420 20:04:14 InnoDB: Completed initialization of buffer pool
+170420 20:04:14  InnoDB: Operating system error number 2 in a file operation.
+InnoDB: The error means the system cannot find the path specified.
+InnoDB: If you are installing InnoDB, remember that you must create
+InnoDB: directories yourself, InnoDB does not create them.
+InnoDB: File name /var\lib/mysql/ibdata1
+InnoDB: File operation call: 'create'.
+InnoDB: Cannot continue operation.
+170420 20:04:14 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

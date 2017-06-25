@@ -1,0 +1,13 @@
+170420 20:00:56 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170420 20:00:56 [Warning] 'THREAD_CONCURRENCY' is deprecated and will be removed in a future release.
+Unknown suffix 'w' used for variable 'innodb-lock-wait-timeout' (value '50wrong')
+170420 20:00:56 [Warning] option 'innodb-lock-wait-timeout': unsigned value 0 adjusted to 1
+170420 20:00:56 [ERROR] /usr/libexec/mysqld: Error while setting value '50wrong' to 'innodb-lock-wait-timeout'
+170420 20:00:56 [ERROR] Parsing options for plugin 'InnoDB' failed.
+170420 20:00:56 [Note] Plugin 'FEEDBACK' is disabled.
+170420 20:00:56 [ERROR] /usr/libexec/mysqld: unknown variable 'innodb_data_home_dir=/var/lib/mysql'
+170420 20:00:56 [ERROR] Aborting
+
+170420 20:00:56 [Note] /usr/libexec/mysqld: Shutdown complete
+
+170420 20:00:56 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

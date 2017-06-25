@@ -11,14 +11,14 @@ log = {
 newlogs = "newlog/"
 newconfs = "newconf/"
 def YumScript(spirit_name):
-    process = os.popen("yum search hello > ./tempfile 2>&1")
+    process = os.popen("yum search squid > ./tempfile 2>&1")
     #process  = os.popen("yum search hello")
-    time.sleep(5)
+    time.sleep(10)
     return utils.readfile("./tempfile")
     #process.wait()
 def HttpdScript(spirit_name):
     process0 = os.popen("systemctl start httpd.service")
-    time.sleep(5)
+    time.sleep(10)
     #process = os.popen("systemctl status httpd.service -l >./" + directory_log + spirit_name+" 2>&1")
     process1 = os.popen("systemctl status httpd.service -l")
     time.sleep(1)
@@ -28,7 +28,7 @@ def HttpdScript(spirit_name):
 def MySQLScript(spirit_name):
     position = utils.seek2(log[lenseinfo_name])
     process = os.popen("systemctl start mariadb.service")
-    time.sleep(5)
+    time.sleep(10)
     #process = os.popen("systemctl status mariadb.service -l >./" + directory_log + spirit_name+" 2>&1")
     #time.sleep(2)
     process = os.popen("systemctl stop mariadb.service")
@@ -47,7 +47,7 @@ def RedisScript(spirit_name):
     #utils.recordnewlog(log[lenseinfo_name], position, "./"+directory_log + spirit_name)
 def PostgreSQLScript(spirit_name):
     process0 = os.popen("systemctl start postgresql.service")
-    time.sleep(5)
+    time.sleep(10)
     #process = os.popen("systemctl status httpd.service -l >./" + directory_log + spirit_name+" 2>&1")
     process1 = os.popen("systemctl status postgresql.service -l")
     time.sleep(1)

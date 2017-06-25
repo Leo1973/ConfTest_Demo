@@ -1,0 +1,2 @@
+Loaded plugins: fastestmirror, langpacks
+Options error: Error parsing "http_caching = 'v'": "v" is not an allowed value

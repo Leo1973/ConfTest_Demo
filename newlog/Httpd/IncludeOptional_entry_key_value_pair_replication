@@ -1,0 +1,17 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 17:50:06 CST; 9s ago
+  Process: 31896 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 31895 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 31895 (code=exited, status=1/FAILURE)
+
+Apr 20 17:50:06 localhost.localdomain httpd[31895]: [Thu Apr 20 17:50:06.018456 2017] [alias:warn] [pid 31895] AH00671: The Alias directive in /etc/httpd/conf.d/welcome.conf at line 21 will probably never match because it overlaps an earlier Alias.
+Apr 20 17:50:06 localhost.localdomain httpd[31895]: [Thu Apr 20 17:50:06.018457 2017] [alias:warn] [pid 31895] AH00671: The Alias directive in /etc/httpd/conf.d/welcome.conf at line 22 will probably never match because it overlaps an earlier Alias.
+Apr 20 17:50:06 localhost.localdomain httpd[31895]: (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:8443
+Apr 20 17:50:06 localhost.localdomain httpd[31895]: no listening sockets available, shutting down
+Apr 20 17:50:06 localhost.localdomain httpd[31895]: AH00015: Unable to open logs
+Apr 20 17:50:06 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Apr 20 17:50:06 localhost.localdomain kill[31896]: kill: cannot find process ""
+Apr 20 17:50:06 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 17:50:06 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 17:50:06 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

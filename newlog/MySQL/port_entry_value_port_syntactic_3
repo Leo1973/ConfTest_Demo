@@ -1,0 +1,6 @@
+170420 20:02:02 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Unknown suffix 't' used for variable 'port' (value 'test')
+170420 20:02:02 [ERROR] /usr/libexec/mysqld: Error while setting value 'test' to 'port'
+170420 20:02:02 [ERROR] Aborting
+
+170420 20:02:02 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

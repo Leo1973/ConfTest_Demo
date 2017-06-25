@@ -8,17 +8,21 @@ def assemble(Seq):
 def init(Value):
     seq = []
     returnlist = []
-    while "/" in Value:
-        loc = Value.index("/")
-        if loc != 0:
-            seq.append(Value[0:loc])
-            seq.append("/")
-            Value = Value[loc+1::]
-        else:
-            seq.append("/")
-            Value = Value[loc+1::]
-    if Value:
-        seq.append(Value)
+    if "/" in Value:
+        while "/" in Value:
+            loc = Value.index("/")
+            if loc != 0:
+                seq.append(Value[0:loc])
+                seq.append("/")
+                Value = Value[loc+1::]
+            else:
+                seq.append("/")
+                Value = Value[loc+1::]
+        if Value:
+            seq.append(Value)
+    else:
+        seq.append("random")
+        seq.append("string")
     err1 = list(seq)
     err1.insert(0, "\\")
     err2 = list(seq)

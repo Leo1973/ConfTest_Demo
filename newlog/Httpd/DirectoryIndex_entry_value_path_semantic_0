@@ -1,0 +1,12 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 18:59:16 CST; 9s ago
+  Process: 40591 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 40588 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=0/SUCCESS)
+ Main PID: 40588 (code=exited, status=0/SUCCESS)
+
+Apr 20 18:59:15 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 18:59:16 localhost.localdomain kill[40591]: kill: cannot find process ""
+Apr 20 18:59:16 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 18:59:16 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 18:59:16 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

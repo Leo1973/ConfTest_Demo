@@ -1,0 +1,5 @@
+170420 19:29:10 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+170420 19:29:10 [ERROR] Buffered error: /usr/libexec/mysqld: ambiguous option '--= 50
+=50' (performance_schema, performance_schema_max_thread_instances)
+
+170420 19:29:10 mysqld_safe mysqld from pid file /var/run/mariadb/mariadb.pid ended

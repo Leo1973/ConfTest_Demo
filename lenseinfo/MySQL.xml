@@ -16,7 +16,7 @@
         <Entry13 key='thread_concurrency' value = '8' operator = ' = ' constraint = 'int none none' type = 'NUMB' origin = 'thread_concurrency = 8'></Entry13>
         <Entry14 key='tmpdir' value = '/tmp/' operator = ' = ' constraint = 'none' type = 'PATH' origin = 'tmpdir = /tmp/'></Entry14>
         <Entry15 key='log-bin' value = 'mysql-bin' operator = ' = ' constraint = 'none' type = 'ENUM' origin = 'log-bin = mysql-bin'></Entry15>
-        <Entry16 key='server-id' value = '1' operator = ' = ' constraint = 'none' type = 'NUMB' origin = 'server-id = 1'></Entry16>
+        <Entry16 key='server-id' value = '1' operator = ' = ' constraint = 'int none none' type = 'NUMB' origin = 'server-id = 1'></Entry16>
         <Entry17 key='binlog_format' value = 'mixed' operator = ' = ' constraint = 'none' type = 'ENUM' origin = 'binlog_format = mixed'></Entry17>
         <Entry18 key='innodb_data_home_dir' value = '/var/lib/mysql' operator = ' = ' constraint = 'none' type = 'PATH' origin = 'innodb_data_home_dir = /var/lib/mysql'></Entry18>
         <Entry19 key='innodb_log_group_home_dir' value = '/var/lib/mysql' operator = ' = ' constraint = 'none' type = 'PATH' origin = 'innodb_log_group_home_dir = /var/lib/mysql'></Entry19>

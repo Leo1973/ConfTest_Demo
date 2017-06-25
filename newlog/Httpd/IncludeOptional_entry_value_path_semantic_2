@@ -1,0 +1,14 @@
+httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled)
+   Active: failed (Result: exit-code) since Thu 2017-04-20 19:03:00 CST; 9s ago
+  Process: 41022 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 41020 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 41020 (code=exited, status=1/FAILURE)
+
+Apr 20 19:02:59 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Apr 20 19:02:59 localhost.localdomain httpd[41020]: httpd: Syntax error on line 94 of /etc/httpd/conf/httpd.conf: Could not open config directory /spirittest: Permission denied
+Apr 20 19:02:59 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Apr 20 19:03:00 localhost.localdomain kill[41022]: kill: cannot find process ""
+Apr 20 19:03:00 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited status=1
+Apr 20 19:03:00 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.
+Apr 20 19:03:00 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.

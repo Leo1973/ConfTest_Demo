@@ -1,0 +1,66 @@
+#PATH $'
+hba_file = '/var/lib/pgsql/data/pg_hba.conf'
+#ADDRESS
+listen_addresses = 'localhost'
+#PORT
+port = 5432
+#NUMB $int none none
+max_connections = 100
+#NUMB $int none none
+superuser_reserved_connections = 3
+#PATH $'
+unix_socket_directories = '/var/run/postgresql'
+#NAME
+unix_socket_group = ''
+#BOOL $of
+bonjour = off
+#NAME
+bonjour_name = 'Leo'
+#NUMB $int [1,600] s
+authentication_timeout = 60s
+#BOOL $of
+ssl = off
+#PATH $'
+ssl_cert_file = 'server.crt'
+#PATH $'
+ssl_key_file = 'server.key'
+#BOOL $of
+password_encryption = on
+#BOOL $of
+db_user_namespace = off
+#NAME
+krb_srvname = 'postgres'
+#BOOL $of
+krb_caseins_users = off
+#NUMB $int none none
+tcp_keepalives_idle = 0
+#NUMB $int none none
+tcp_keepalives_interval = 0
+#NUMB $int none none
+tcp_keepalives_count = 0
+#NUMB $int [128,65536] kB
+shared_buffers = 256kB
+#NUMB $int [800,65536] kB
+temp_buffers = 1600kB
+#NUMB $int none none
+max_prepared_transactions = 0
+#NUMB $int [64,65536] kB
+work_mem = 128kB
+#NUMB $int [1,64] MB
+maintenance_work_mem = 16MB
+#NUMB $int [100,65536] kB
+max_stack_depth = 100kB
+#NUMB $int [-1,1000] none
+temp_file_limit = -1
+#NUMB $int [25,1000] none
+max_files_per_process = 1000
+#NUMB $int [0,100] ms
+vacuum_cost_delay  =  0ms
+#NUMB $int [0,10000] none
+vacuum_cost_page_hit = 1
+#NUMB $int [0,10000] none
+vacuum_cost_page_miss = 10
+#NUMB $int [0,10000] none
+vacuum_cost_page_dirty = 20
+#NUMB $int [1,10000] none
+vacuum_cost_limit = 200
